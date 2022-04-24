@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RS2Seminarski.WebAPI", "RS2Seminarski.WebAPI.csproj", "{FB60DDF1-6553-4F3A-B09D-27B425C21399}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RS2Seminarski.Model", "..\RS2Seminarski.Model\RS2Seminarski.Model.csproj", "{8646D378-ED64-4BA5-8222-53078D30E41A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB60DDF1-6553-4F3A-B09D-27B425C21399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB60DDF1-6553-4F3A-B09D-27B425C21399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB60DDF1-6553-4F3A-B09D-27B425C21399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB60DDF1-6553-4F3A-B09D-27B425C21399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8646D378-ED64-4BA5-8222-53078D30E41A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8646D378-ED64-4BA5-8222-53078D30E41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8646D378-ED64-4BA5-8222-53078D30E41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8646D378-ED64-4BA5-8222-53078D30E41A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61ED0C1C-FE87-455E-89F8-AE29262E8696}
+	EndGlobalSection
+EndGlobal
