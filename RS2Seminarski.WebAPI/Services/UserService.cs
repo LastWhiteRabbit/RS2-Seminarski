@@ -18,13 +18,13 @@ namespace RS2Seminarski.WebAPI.Services
 
         public override async Task<Model.User> InsertAsync(UserInsertRequest insert)
         {
-            var entity = base.InsertAsync(insert);
+            var entity = await base.InsertAsync(insert);
 
             foreach (var roleId in insert.RoleIdList)
             {
                 Database.UserRole userRoles = new Database.UserRole();
                 userRoles.RoleId = roleId;
-                userRoles.UserId = entity.Id;
+                userRoles.UserId = entity.UserId;
                 userRoles.DateEdited = DateTime.Now;
 
                 await _context.UserRoles.AddAsync(userRoles);
@@ -32,7 +32,7 @@ namespace RS2Seminarski.WebAPI.Services
 
             await _context.SaveChangesAsync();
 
-            return await entity;
+            return  entity;
         }
 
         public override void BeforeInsert(UserInsertRequest insert, User entity)
@@ -64,6 +64,25 @@ namespace RS2Seminarski.WebAPI.Services
             HashAlgorithm algorithm = HashAlgorithm.Create("SHA1");
             byte[] inArray = algorithm.ComputeHash(dst);
             return Convert.ToBase64String(inArray);
+        }
+
+        public Model.User Login(string username, string password)
+        {
+            var entity = _context.Users.FirstOrDefault(x => x.UserName == username);
+
+            if (entity == null)
+            {
+                return null;
+            }
+
+            var hash = GenerateHash(entity.PaswordSalt, password);
+
+            if(hash != entity.PasswordHash)
+            {
+                return null;
+            }
+
+            return _mapper.Map<Model.User>(entity);
         }
     }
 
