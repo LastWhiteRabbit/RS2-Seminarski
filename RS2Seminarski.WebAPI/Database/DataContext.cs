@@ -13,16 +13,38 @@ namespace RS2Seminarski.WebAPI.Database
         {
         }
 
-        public DbSet<WeatherForecast> WeatherForecasts { get; set; } = null;
-        public DbSet<User> Users { get; set; } = null;
+        public DbSet<Exercise> Exercises { get; set; } = null;
+        public DbSet<ExerciseExerciseType> ExerciseExerciseTypes { get; set; } = null;
+        public DbSet<ExerciseMuscle> ExerciseMuscles { get; set; } = null;
+        public DbSet<ExerciseType> ExerciseTypes { get; set; } = null;
+        public DbSet<Level> Levels { get; set; } = null;
+        public DbSet<Muscle> Muscles { get; set; } = null;
         public DbSet<Role> Roles { get; set; } = null;
+        public DbSet<Routine> Routines { get; set; } = null;
+        public DbSet<RoutineExercise> RoutineExercises { get; set; } = null;
+        public DbSet<RoutineUser> RoutineUsers { get; set; } = null;
+        public DbSet<User> Users { get; set; } = null;
         public DbSet<UserRole> UserRoles { get; set; } = null;
+        public DbSet<WeatherForecast> WeatherForecasts { get; set; } = null;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserRole>().HasKey(e => e.UserRoleId);
             modelBuilder.Entity<User>().HasKey(e => e.UserId);
             modelBuilder.Entity<Role>().HasKey(e => e.RoleId);
+
+            modelBuilder.Entity<ExerciseExerciseType>().HasKey(e => e.ExerciseExerciseTypeId);
+            modelBuilder.Entity<Exercise>().HasKey(e => e.ExerciseId);
+            modelBuilder.Entity<ExerciseType>().HasKey(e => e.ExerciseTypeId);
+            modelBuilder.Entity<Level>().HasKey(e => e.LevelId);
+
+            modelBuilder.Entity<ExerciseMuscle>().HasKey(e => e.ExerciseMuscleId);
+            modelBuilder.Entity<Muscle>().HasKey(e => e.MuscleId);
+
+            modelBuilder.Entity<Routine>().HasKey(e => e.RoutineId);
+            modelBuilder.Entity<RoutineExercise>().HasKey(e => e.RoutineExerciseId);
+            modelBuilder.Entity<RoutineUser>().HasKey(e => e.RoutineUserId);
+
         }
     }
 }
