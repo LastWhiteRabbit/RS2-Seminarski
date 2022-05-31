@@ -11,6 +11,7 @@ namespace RS2Seminarski.WebAPI.Database
         public User()
         {
             UserRoles = new HashSet<UserRole>();
+            RoutineUsers = new HashSet<RoutineUser>();
         }
         public int UserId { get; set; }
         public string Name { get; set; } = null!;
@@ -23,5 +24,7 @@ namespace RS2Seminarski.WebAPI.Database
         public bool? Status { get; set; }
 
         public virtual ICollection<UserRole> UserRoles { get; set; }
+        public virtual ICollection<RoutineUser> RoutineUsers { get; set; }
+
     }
 }
