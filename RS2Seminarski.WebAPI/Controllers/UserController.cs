@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RS2Seminarski.Model;
 using RS2Seminarski.Model.Requests;
@@ -9,6 +10,7 @@ namespace RS2Seminarski.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController
         : BaseCRUDController<User, UserSearchObject, UserInsertRequest, UserUpdateRequest>
     {
