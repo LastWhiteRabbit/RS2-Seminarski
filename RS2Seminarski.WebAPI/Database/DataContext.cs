@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RS2Seminarski.WebAPI.Database
 {
-    public class DataContext : DbContext
+    public partial class DataContext : DbContext
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
@@ -45,6 +45,8 @@ namespace RS2Seminarski.WebAPI.Database
             modelBuilder.Entity<RoutineExercise>().HasKey(e => e.RoutineExerciseId);
             modelBuilder.Entity<RoutineUser>().HasKey(e => e.RoutineUserId);
 
+            OnModelCreatingPartial(modelBuilder);
         }
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RS2Seminarski.WebAPI.Migrations
 {
-    public partial class NewModels : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -264,6 +264,127 @@ namespace RS2Seminarski.WebAPI.Migrations
                         principalTable: "Routines",
                         principalColumn: "RoutineId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "ExerciseTypes",
+                columns: new[] { "ExerciseTypeId", "ExerciseTypeName" },
+                values: new object[,]
+                {
+                    { 1, "Cardio" },
+                    { 2, "Olympic Weightlifting" },
+                    { 3, "Plyometrics" },
+                    { 4, "Powerlifting" },
+                    { 5, "Strength" },
+                    { 6, "Stretching" },
+                    { 7, "Strongman" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Levels",
+                columns: new[] { "LevelId", "LevelName" },
+                values: new object[,]
+                {
+                    { 1, "Beginner" },
+                    { 2, "Intermediate" },
+                    { 3, "Expert" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Muscles",
+                columns: new[] { "MuscleId", "MuscleName" },
+                values: new object[,]
+                {
+                    { 1, "Chest" },
+                    { 2, "Forearms" },
+                    { 3, "Lats" },
+                    { 4, "Middle Back" },
+                    { 5, "Lower Back" },
+                    { 6, "Neck" },
+                    { 7, "Quadriceps" },
+                    { 8, "Hamstrings" },
+                    { 9, "Calves" },
+                    { 10, "Triceps" },
+                    { 11, "Traps" },
+                    { 12, "Shoulders" },
+                    { 13, "Abdominals" },
+                    { 14, "Glutes" },
+                    { 15, "Biceps" },
+                    { 16, "Adductors" },
+                    { 17, "Abductors" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Roles",
+                columns: new[] { "RoleId", "About", "Name" },
+                values: new object[,]
+                {
+                    { 1, null, "Administrator" },
+                    { 2, null, "Trainer" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Routines",
+                columns: new[] { "RoutineId", "Description", "Rating", "RoutineName" },
+                values: new object[] { 1, " Push-Pull-Legs", 0, "PPL" });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "UserId", "Email", "Mobile", "Name", "PasswordHash", "PaswordSalt", "Status", "Surname", "UserName" },
+                values: new object[,]
+                {
+                    { 1, "test@fit.ba", null, "Test", "7p3l25Cnbg+2QxoQRElFJjIqHgA=", "H4pOSYtdeJgGsU/6HRTxqw==", null, "Test", "test" },
+                    { 2, "admin@fit.ba", null, "Administrator", "JfJzsL3ngGWki+Dn67C+8WLy73I=", "7TUJfmgkkDvcY3PB/M4fhg==", null, "Administrator", "admin" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Exercises",
+                columns: new[] { "ExerciseId", "About", "ExerciseImage", "ExerciseName", "Instruction", "LevelId" },
+                values: new object[,]
+                {
+                    { 1, "The wide-grip bench press is a compound exercise targeting the chest and, to a lesser extent, the triceps. The main difference between this exercise and the standard bench press is that the hands are placed farther apart on the bar. Many lifters find they can handle more weight going wide than with narrower grips, although it's also worth noting that plenty of banged-up lifters have said benching with a wide grip may also have contributed to their shoulder injuries and pain. The wide-grip bench is often used as a chest-building movement in chest or upper-body workouts, or as an accessory movement for the traditional bench press.", null, "Bench press", "Lie back on a flat bench with feet firm on the floor. Using a wide, pronated (palms forward) grip that is around 3 inches away from shoulder width (for each hand), lift the bar from the rack and hold it straight over you with your arms locked. The bar will be perpendicular to the torso and the floor. This will be your starting position. As you breathe in, come down slowly until you feel the bar on your middle chest. After a second pause, bring the bar back to the starting position as you breathe out and push the bar using your chest muscles. Lock your arms and squeeze your chest in the contracted position, hold for a second and then start coming down slowly again. Tip: It should take at least twice as long to go down than to come up. Repeat the movement for the prescribed amount of repetitions.", 1 },
+                    { 2, "The pull-up is a multi-joint bodyweight exercise that builds strength and muscle in the upper back, biceps, and core. It is often used as a measurement tool in military or tactical fitness tests, and is an excellent gauge of “relative strength” which is strength in relation to bodyweight. ", null, "Pullups", "Grab the pull-up bar with the palms facing forward using the prescribed grip.As you have both arms extended in front of you holding the bar at the chosen grip width, bring your torso back around 30 degrees or so while creating a curvature on your lower back and sticking your chest out. This is your starting position.", 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "RoutineUsers",
+                columns: new[] { "RoutineUserId", "RoutineId", "UserId" },
+                values: new object[] { 1, 1, 1 });
+
+            migrationBuilder.InsertData(
+                table: "UserRoles",
+                columns: new[] { "UserRoleId", "DateEdited", "RoleId", "UserId" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2022, 7, 5, 0, 0, 0, 0, DateTimeKind.Local), 1, 1 },
+                    { 2, new DateTime(2022, 7, 5, 0, 0, 0, 0, DateTimeKind.Local), 1, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ExerciseExerciseTypes",
+                columns: new[] { "ExerciseExerciseTypeId", "ExerciseId", "ExerciseTypeId" },
+                values: new object[,]
+                {
+                    { 1, 1, 4 },
+                    { 2, 2, 5 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ExerciseMuscles",
+                columns: new[] { "ExerciseMuscleId", "ExerciseId", "MuscleId" },
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 2, 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "RoutineExercises",
+                columns: new[] { "RoutineExerciseId", "ExerciseId", "RoutineId" },
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 2, 1 }
                 });
 
             migrationBuilder.CreateIndex(
