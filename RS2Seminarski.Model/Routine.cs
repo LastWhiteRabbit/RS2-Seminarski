@@ -9,7 +9,7 @@ namespace RS2Seminarski.Model
     public class Routine
     {
         public int RoutineId { get; set; }
-        public string RoutineName { get; set; } = null!;
+        public string RoutineName { get; set; }
         public string? Description { get; set; }
         public int? Rating { get; set; }
 

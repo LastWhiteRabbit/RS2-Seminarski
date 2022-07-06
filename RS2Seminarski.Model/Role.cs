@@ -9,7 +9,7 @@ namespace RS2Seminarski.Model
     public class Role
     {
         public int RoleId { get; set; }
-        public string Name { get; set; } = null!;
+        public string Name { get; set; }
         public string? About { get; set; }
 
        // public virtual ICollection<UserRole> UserRoles { get; set; }

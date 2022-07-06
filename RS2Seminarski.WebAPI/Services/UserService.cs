@@ -66,6 +66,20 @@ namespace RS2Seminarski.WebAPI.Services
             return Convert.ToBase64String(inArray);
         }
 
+        public override IQueryable<Database.User> AddFilter(IQueryable<Database.User> query, UserSearchObject search = null)
+        {
+            var filteredQuery = base.AddFilter(query, search);
+
+            if (!string.IsNullOrWhiteSpace(search?.Name))
+            {
+                filteredQuery = filteredQuery.Where(x => x.UserName == search.Name);
+            }
+
+
+
+            return filteredQuery;
+        }
+
         public Model.User Login(string username, string password)
         {
             var entity = _context.Users.FirstOrDefault(x => x.UserName == username);

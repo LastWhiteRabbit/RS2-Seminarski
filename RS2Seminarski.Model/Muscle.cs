@@ -9,7 +9,7 @@ namespace RS2Seminarski.Model
     public class Muscle
     {
         public int MuscleId { get; set; }
-        public string MuscleName { get; set; } = null!;
+        public string MuscleName { get; set; }
 
         //public virtual ICollection<ExerciseMuscle> ExerciseMuscles { get; set; }
     }

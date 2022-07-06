@@ -14,6 +14,9 @@ builder.Services.AddControllers();
 
 builder.Services.AddTransient<IWeatherForecastService, WeatherForecastService>();
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IExerciseService, ExerciseService>();
+builder.Services.AddTransient<IRoutineService, RoutineService>();
+
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));

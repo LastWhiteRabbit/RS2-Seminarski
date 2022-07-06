@@ -4,19 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RS2Seminarski.Model
+namespace RS2Seminarski.Model.Requests
 {
-    public class Exercise
+    public class ExerciseInsertRequest
     {
-        public int ExerciseId { get; set; }
         public string ExerciseName { get; set; }
         public int LevelId { get; set; }
         public string? Instruction { get; set; }
         public string? About { get; set; }
         public byte[]? ExerciseImage { get; set; }
+        public List<int> ExerciseTypeIdList { get; set; } = new List<int> { };
+        public List<int> MuscleIdList { get; set; } = new List<int> { };
 
-        public virtual ICollection<ExerciseExerciseType> ExerciseExerciseTypes { get; set; }
-        public virtual ICollection<ExerciseMuscle> ExerciseMuscles { get; set; }
-       // public virtual ICollection<RoutineExercise> RoutineExercises { get; set; }
     }
 }
