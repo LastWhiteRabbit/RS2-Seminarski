@@ -13,6 +13,32 @@ namespace RS2Seminarski.WebAPI.Services
         {
 
         }
+        public override async Task<Model.Exercise> InsertAsync(ExerciseInsertRequest insert)
+        {
+            var entity = await base.InsertAsync(insert);
+
+            foreach (var muscleId in insert.MuscleIdList)
+            {
+                Database.ExerciseMuscle exerciseMuscle = new Database.ExerciseMuscle();
+                exerciseMuscle.ExerciseId = entity.ExerciseId;
+                exerciseMuscle.MuscleId = muscleId;
+
+                await _context.ExerciseMuscles.AddAsync(exerciseMuscle);
+            }
+
+            foreach (var exerciseTypeId in insert.ExerciseTypeIdList)
+            {
+                Database.ExerciseExerciseType exerciseExerciseType = new Database.ExerciseExerciseType();
+                exerciseExerciseType.ExerciseId = entity.ExerciseId;
+                exerciseExerciseType.ExerciseTypeId = exerciseTypeId;
+
+                await _context.ExerciseExerciseTypes.AddAsync(exerciseExerciseType);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return entity;
+        }
 
         public override IQueryable<Database.Exercise> AddFilter(IQueryable<Database.Exercise> query, ExerciseSearchObject search = null)
         {

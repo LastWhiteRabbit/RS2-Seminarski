@@ -16,6 +16,7 @@ builder.Services.AddTransient<IWeatherForecastService, WeatherForecastService>()
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IExerciseService, ExerciseService>();
 builder.Services.AddTransient<IRoutineService, RoutineService>();
+builder.Services.AddTransient<ILevelService, LevelService>();
 
 builder.Services.AddDbContext<DataContext>(options =>
 {

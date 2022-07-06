@@ -18,5 +18,6 @@ namespace RS2Seminarski.Model.Requests
 
 
         public List<int> RoleIdList { get; set; } = new List<int> { };
+        public List<int> RoutineIdList { get; set; } = new List<int> { };
     }
 }

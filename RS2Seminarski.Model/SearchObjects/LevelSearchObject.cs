@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RS2Seminarski.Model.SearchObjects
 {
-    public class LevelSearchObject
+    public class LevelSearchObject : BaseSearchObject
     {
         public string LevelName { get; set; }
     }

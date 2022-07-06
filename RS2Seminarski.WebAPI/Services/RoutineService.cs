@@ -12,6 +12,26 @@ namespace RS2Seminarski.WebAPI.Services
         public RoutineService(DataContext context, IMapper mapper) : base(context, mapper)
         {
         }
+        public override async Task<Model.Routine> InsertAsync(RoutineInsertRequest insert)
+        {
+            var entity = await base.InsertAsync(insert);
+
+
+            foreach (var exerciseId in insert.ExerciseIdList)
+            {
+                Database.RoutineExercise routineExercise = new Database.RoutineExercise();
+                routineExercise.RoutineId = entity.RoutineId;
+                routineExercise.ExerciseId = exerciseId;
+
+                await _context.RoutineExercises.AddAsync(routineExercise);
+            }
+
+    
+
+            await _context.SaveChangesAsync();
+
+            return entity;
+        }
 
         public override IQueryable<Database.Routine> AddFilter(IQueryable<Database.Routine> query, RoutineSearchObject search = null)
         {
