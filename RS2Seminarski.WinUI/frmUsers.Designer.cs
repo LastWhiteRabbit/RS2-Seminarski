@@ -29,35 +29,35 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsers));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvUserList = new System.Windows.Forms.DataGridView();
             this.btnShow = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnExercises = new System.Windows.Forms.Button();
+            this.btnRoutines = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.btnStats = new System.Windows.Forms.Button();
+            this.btnAddUser = new System.Windows.Forms.Button();
+            this.btnEditUser = new System.Windows.Forms.Button();
+            this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.txtSearchUser = new System.Windows.Forms.TextBox();
+            this.pbUser = new System.Windows.Forms.PictureBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblRole = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvUserList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(209, 83);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(483, 253);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUserList.Location = new System.Drawing.Point(209, 83);
+            this.dgvUserList.Name = "dgvUserList";
+            this.dgvUserList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvUserList.RowTemplate.Height = 29;
+            this.dgvUserList.Size = new System.Drawing.Size(483, 253);
+            this.dgvUserList.TabIndex = 0;
             // 
             // btnShow
             // 
@@ -65,7 +65,7 @@
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(94, 29);
             this.btnShow.TabIndex = 1;
-            this.btnShow.Text = "button1";
+            this.btnShow.Text = "Search";
             this.btnShow.UseVisualStyleBackColor = true;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
@@ -79,90 +79,90 @@
             this.btnUsers.TabIndex = 2;
             this.btnUsers.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnExercises
             // 
-            this.button1.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.weight5_42665;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Location = new System.Drawing.Point(26, 125);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 44);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnExercises.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.weight5_42665;
+            this.btnExercises.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExercises.Location = new System.Drawing.Point(26, 125);
+            this.btnExercises.Name = "btnExercises";
+            this.btnExercises.Size = new System.Drawing.Size(139, 44);
+            this.btnExercises.TabIndex = 3;
+            this.btnExercises.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnRoutines
             // 
-            this.button2.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.clipboard_120835;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Location = new System.Drawing.Point(26, 167);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 44);
-            this.button2.TabIndex = 4;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnRoutines.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.clipboard_120835;
+            this.btnRoutines.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRoutines.Location = new System.Drawing.Point(26, 167);
+            this.btnRoutines.Name = "btnRoutines";
+            this.btnRoutines.Size = new System.Drawing.Size(139, 44);
+            this.btnRoutines.TabIndex = 4;
+            this.btnRoutines.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnSettings
             // 
-            this.button3.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources._3592841_cog_gear_general_machine_office_setting_settings_107765;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Location = new System.Drawing.Point(26, 209);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(139, 44);
-            this.button3.TabIndex = 5;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSettings.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources._3592841_cog_gear_general_machine_office_setting_settings_107765;
+            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSettings.Location = new System.Drawing.Point(26, 209);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(139, 44);
+            this.btnSettings.TabIndex = 5;
+            this.btnSettings.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnStats
             // 
-            this.button4.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.stats_icon_icons_com_65379;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.Location = new System.Drawing.Point(26, 251);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(139, 44);
-            this.button4.TabIndex = 6;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnStats.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.stats_icon_icons_com_65379;
+            this.btnStats.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnStats.Location = new System.Drawing.Point(26, 251);
+            this.btnStats.Name = "btnStats";
+            this.btnStats.Size = new System.Drawing.Size(139, 44);
+            this.btnStats.TabIndex = 6;
+            this.btnStats.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnAddUser
             // 
-            this.button5.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.adduser_añadir_3553;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button5.Location = new System.Drawing.Point(12, 348);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(53, 58);
-            this.button5.TabIndex = 7;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnAddUser.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.adduser_añadir_3553;
+            this.btnAddUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddUser.Location = new System.Drawing.Point(12, 348);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(53, 58);
+            this.btnAddUser.TabIndex = 7;
+            this.btnAddUser.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnEditUser
             // 
-            this.button6.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.pencil_striped_symbol_for_interface_edit_buttons_icon_icons_com_56782;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button6.Location = new System.Drawing.Point(71, 348);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(53, 58);
-            this.button6.TabIndex = 8;
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnEditUser.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.pencil_striped_symbol_for_interface_edit_buttons_icon_icons_com_56782;
+            this.btnEditUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEditUser.Location = new System.Drawing.Point(71, 348);
+            this.btnEditUser.Name = "btnEditUser";
+            this.btnEditUser.Size = new System.Drawing.Size(53, 58);
+            this.btnEditUser.TabIndex = 8;
+            this.btnEditUser.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnDeleteUser
             // 
-            this.button7.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.seo_social_web_network_internet_262_icon_icons_com_61518;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button7.Location = new System.Drawing.Point(130, 348);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(53, 58);
-            this.button7.TabIndex = 9;
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnDeleteUser.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.seo_social_web_network_internet_262_icon_icons_com_61518;
+            this.btnDeleteUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDeleteUser.Location = new System.Drawing.Point(130, 348);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Size = new System.Drawing.Size(53, 58);
+            this.btnDeleteUser.TabIndex = 9;
+            this.btnDeleteUser.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtSearchUser
             // 
-            this.textBox1.Location = new System.Drawing.Point(209, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 27);
-            this.textBox1.TabIndex = 10;
+            this.txtSearchUser.Location = new System.Drawing.Point(209, 50);
+            this.txtSearchUser.Name = "txtSearchUser";
+            this.txtSearchUser.Size = new System.Drawing.Size(204, 27);
+            this.txtSearchUser.TabIndex = 10;
             // 
-            // pictureBox1
+            // pbUser
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(476, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(78, 65);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.pbUser.Location = new System.Drawing.Point(476, 12);
+            this.pbUser.Name = "pbUser";
+            this.pbUser.Size = new System.Drawing.Size(78, 65);
+            this.pbUser.TabIndex = 11;
+            this.pbUser.TabStop = false;
             // 
             // lblUsername
             // 
@@ -183,15 +183,15 @@
             this.lblRole.TabIndex = 13;
             this.lblRole.Text = "Role";
             // 
-            // button8
+            // btnLogout
             // 
-            this.button8.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.logout_3622;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button8.Location = new System.Drawing.Point(670, 16);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(46, 43);
-            this.button8.TabIndex = 14;
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnLogout.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.logout_3622;
+            this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLogout.Location = new System.Drawing.Point(670, 16);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(46, 43);
+            this.btnLogout.TabIndex = 14;
+            this.btnLogout.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -208,27 +208,27 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 418);
+            this.ClientSize = new System.Drawing.Size(727, 418);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pbUser);
+            this.Controls.Add(this.txtSearchUser);
+            this.Controls.Add(this.btnDeleteUser);
+            this.Controls.Add(this.btnEditUser);
+            this.Controls.Add(this.btnAddUser);
+            this.Controls.Add(this.btnStats);
+            this.Controls.Add(this.btnSettings);
+            this.Controls.Add(this.btnRoutines);
+            this.Controls.Add(this.btnExercises);
             this.Controls.Add(this.btnUsers);
             this.Controls.Add(this.btnShow);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvUserList);
             this.Name = "frmUsers";
             this.Text = "frmUsers";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,21 +236,21 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvUserList;
         private Button btnShow;
         private Button btnUsers;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private TextBox textBox1;
-        private PictureBox pictureBox1;
+        private Button btnExercises;
+        private Button btnRoutines;
+        private Button btnSettings;
+        private Button btnStats;
+        private Button btnAddUser;
+        private Button btnEditUser;
+        private Button btnDeleteUser;
+        private TextBox txtSearchUser;
+        private PictureBox pbUser;
         private Label lblUsername;
         private Label lblRole;
-        private Button button8;
+        private Button btnLogout;
         private Label label1;
     }
 }
