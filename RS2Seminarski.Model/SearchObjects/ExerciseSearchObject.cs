@@ -8,7 +8,7 @@ namespace RS2Seminarski.Model.SearchObjects
 {
     public class ExerciseSearchObject : BaseSearchObject
     {
-        public string ExerciseName { get; set; }
+        public string? ExerciseName { get; set; }
         public int LevelId { get; set; }
     }
 }

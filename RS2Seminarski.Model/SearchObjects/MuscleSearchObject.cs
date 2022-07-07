@@ -8,6 +8,6 @@ namespace RS2Seminarski.Model.SearchObjects
 {
     public class MuscleSearchObject
     {
-        public string MuscleName { get; set; } = null!;
+        public string? MuscleName { get; set; }
     }
 }

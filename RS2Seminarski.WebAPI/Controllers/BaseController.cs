@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RS2Seminarski.WebAPI.Interfaces;
 
-namespace RS2Seminarski.Controllers
+namespace RS2Seminarski.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

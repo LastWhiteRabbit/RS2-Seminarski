@@ -8,6 +8,6 @@ namespace RS2Seminarski.Model.SearchObjects
 {
     public class RoutineSearchObject : BaseSearchObject
     {
-        public string RoutineName { get; set; } 
+        public string? RoutineName { get; set; } 
     }
 }

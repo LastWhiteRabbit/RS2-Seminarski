@@ -1,5 +1,4 @@
-﻿using RS2Seminarski.Controllers;
-using RS2Seminarski.Model;
+﻿using RS2Seminarski.Model;
 using RS2Seminarski.Model.Requests;
 using RS2Seminarski.Model.SearchObjects;
 using RS2Seminarski.WebAPI.Interfaces;

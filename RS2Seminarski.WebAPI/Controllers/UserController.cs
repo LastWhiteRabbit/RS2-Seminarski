@@ -6,7 +6,7 @@ using RS2Seminarski.Model.Requests;
 using RS2Seminarski.Model.SearchObjects;
 using RS2Seminarski.WebAPI.Interfaces;
 
-namespace RS2Seminarski.Controllers
+namespace RS2Seminarski.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RS2Seminarski.WebAPI", "RS2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RS2Seminarski.Model", "..\RS2Seminarski.Model\RS2Seminarski.Model.csproj", "{8646D378-ED64-4BA5-8222-53078D30E41A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RS2Seminarski.WinUI", "..\RS2Seminarski.WinUI\RS2Seminarski.WinUI.csproj", "{37331604-F441-43DB-AB1C-1961F6536ACE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8646D378-ED64-4BA5-8222-53078D30E41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8646D378-ED64-4BA5-8222-53078D30E41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8646D378-ED64-4BA5-8222-53078D30E41A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37331604-F441-43DB-AB1C-1961F6536ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37331604-F441-43DB-AB1C-1961F6536ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37331604-F441-43DB-AB1C-1961F6536ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37331604-F441-43DB-AB1C-1961F6536ACE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

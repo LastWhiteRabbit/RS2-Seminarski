@@ -8,6 +8,6 @@ namespace RS2Seminarski.Model.SearchObjects
 {
     public class LevelSearchObject : BaseSearchObject
     {
-        public string LevelName { get; set; }
+        public string? LevelName { get; set; }
     }
 }
