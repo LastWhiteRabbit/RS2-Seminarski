@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Flurl.Http;
 using RS2Seminarski.Model;
+using RS2Seminarski.Model.SearchObjects;
 
 namespace RS2Seminarski.WinUI
 {
     public partial class frmUsers : Form
     {
-        public APIService ProductService { get; set; } = new APIService("User");
+        public APIService UserService { get; set; } = new APIService("User");
         public frmUsers()
         {
             InitializeComponent();
@@ -22,7 +23,12 @@ namespace RS2Seminarski.WinUI
 
         private async void btnShow_Click(object sender, EventArgs e)
         {
-            var list = await ProductService.Get<List<User>>();
+            var searchObject = new UserSearchObject();
+            searchObject.UserName = txtSearchUser.Text;
+
+            var list = await UserService.Get<List<User>>(searchObject);
+
+            dgvUserList.DataSource = list;
         }
     }
 }

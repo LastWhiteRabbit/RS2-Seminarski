@@ -17,6 +17,6 @@ namespace RS2Seminarski.Model
         public bool? Status { get; set; }
 
 
-        //public virtual ICollection<UserRole> UserRoles { get; set; }
+        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }

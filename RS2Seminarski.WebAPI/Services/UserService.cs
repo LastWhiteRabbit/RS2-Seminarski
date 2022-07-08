@@ -46,11 +46,13 @@ namespace RS2Seminarski.WebAPI.Services
 
         public static string GenerateSalt()
         {
-            return Convert.ToBase64String(new byte[16]);
+            //return Convert.ToBase64String(new byte[16]);
 
-            //var buf = new byte[16];
-            //object p = (new RSACryptoServiceProvider()).GetBytes(buf);
-            //return Convert.ToBase64String(buf);
+            RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();
+            var byteArray = new byte[16];
+            provider.GetBytes(byteArray);
+
+            return Convert.ToBase64String(byteArray);
         }
         public static string GenerateHash(string salt, string password)
         {
