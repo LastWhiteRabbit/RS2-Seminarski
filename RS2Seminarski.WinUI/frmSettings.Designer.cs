@@ -272,7 +272,7 @@
             // 
             // btnPictureBox
             // 
-            this.btnPictureBox.Location = new System.Drawing.Point(73, 144);
+            this.btnPictureBox.Location = new System.Drawing.Point(62, 144);
             this.btnPictureBox.Name = "btnPictureBox";
             this.btnPictureBox.Size = new System.Drawing.Size(94, 29);
             this.btnPictureBox.TabIndex = 1;
