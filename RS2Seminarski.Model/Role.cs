@@ -12,6 +12,5 @@ namespace RS2Seminarski.Model
         public string Name { get; set; }
         public string? About { get; set; }
 
-       // public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }

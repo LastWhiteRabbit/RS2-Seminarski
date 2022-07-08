@@ -84,7 +84,7 @@ namespace RS2Seminarski.WebAPI.Services
 
         public Model.User Login(string username, string password)
         {
-            var entity = _context.Users.FirstOrDefault(x => x.UserName == username);
+            var entity = _context.Users.Include("UserRoles.Role").FirstOrDefault(x => x.UserName == username);
 
             if (entity == null)
             {

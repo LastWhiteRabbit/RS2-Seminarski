@@ -12,7 +12,7 @@ namespace RS2Seminarski.WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<T> Insert([FromBody] TInsert insert)
+        public virtual async Task<T> Insert([FromBody] TInsert insert)
         {
             var result = await ((ICRUDService<T, TSearch, TInsert, TUpdate>)_service).InsertAsync(insert);
 
@@ -20,7 +20,7 @@ namespace RS2Seminarski.WebAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<T> Update(int id, [FromBody] TUpdate update)
+        public virtual async Task<T> Update(int id, [FromBody] TUpdate update)
         {
             var result = await ((ICRUDService<T, TSearch, TInsert, TUpdate>)_service).UpdateAsync(id, update);
 

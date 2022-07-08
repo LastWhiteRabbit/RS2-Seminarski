@@ -10,13 +10,19 @@ namespace RS2Seminarski.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class UserController
         : BaseCRUDController<User, UserSearchObject, UserInsertRequest, UserUpdateRequest>
     {
         public UserController(IUserService service)
             : base(service)
         {
+        }
+
+
+        [Authorize("Administrator")]
+        public override Task<User> Update(int id, [FromBody] UserUpdateRequest update)
+        {
+            return base.Update(id, update);
         }
     }
 }

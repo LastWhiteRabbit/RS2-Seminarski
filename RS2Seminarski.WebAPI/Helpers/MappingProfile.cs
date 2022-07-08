@@ -9,6 +9,8 @@ namespace RS2Seminarski.WebAPI.Helpers
         {
             CreateMap<Database.WeatherForecast, Model.WeatherForecast>();
             CreateMap<Database.User, Model.User>();
+            CreateMap<Database.UserRole, Model.UserRole>();
+            CreateMap<Database.Role, Model.Role>();
             CreateMap<Database.Exercise, Model.Exercise>();
             CreateMap<Database.Routine, Model.Routine>();
             CreateMap<Database.Level, Model.Level>();
