@@ -10,7 +10,7 @@ namespace RS2Seminarski.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class UserController
         : BaseCRUDController<User, UserSearchObject, UserInsertRequest, UserUpdateRequest>
     {
