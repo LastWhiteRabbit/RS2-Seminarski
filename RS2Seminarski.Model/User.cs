@@ -18,5 +18,7 @@ namespace RS2Seminarski.Model
 
 
         public virtual ICollection<UserRole> UserRoles { get; set; }
+
+        public string RoleNames => string.Join(", ", UserRoles?.Select(x => x.Role?.Name)?.ToList());
     }
 }
