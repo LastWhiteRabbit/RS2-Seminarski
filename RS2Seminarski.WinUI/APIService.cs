@@ -41,9 +41,27 @@ namespace RS2Seminarski.WinUI
 
         public async Task<T> Post<T>(object request)
         {
-            var result = await $"{_endpoint}{_resource}".WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
+            try
+            {
+                var result = await $"{_endpoint}{_resource}".WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
 
-            return result;
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+
+                MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return default(T);
+            }
+
         }
         public async Task<T> Put<T>(object id, object request)
         {

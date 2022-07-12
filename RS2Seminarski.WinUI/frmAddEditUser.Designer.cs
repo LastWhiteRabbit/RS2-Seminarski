@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddEditUser));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.clbRoles = new System.Windows.Forms.CheckedListBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnBrowseImage = new System.Windows.Forms.Button();
             this.btnSaveChanges = new System.Windows.Forms.Button();
@@ -59,9 +61,10 @@
             this.btnRoutines = new System.Windows.Forms.Button();
             this.btnExercises = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
-            this.clbRoles = new System.Windows.Forms.CheckedListBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -90,6 +93,14 @@
             this.groupBox1.Size = new System.Drawing.Size(507, 323);
             this.groupBox1.TabIndex = 82;
             this.groupBox1.TabStop = false;
+            // 
+            // clbRoles
+            // 
+            this.clbRoles.FormattingEnabled = true;
+            this.clbRoles.Location = new System.Drawing.Point(6, 231);
+            this.clbRoles.Name = "clbRoles";
+            this.clbRoles.Size = new System.Drawing.Size(159, 70);
+            this.clbRoles.TabIndex = 97;
             // 
             // label8
             // 
@@ -168,6 +179,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(228, 27);
             this.txtUsername.TabIndex = 16;
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // label5
             // 
@@ -350,13 +362,9 @@
             this.btnUsers.TabIndex = 70;
             this.btnUsers.UseVisualStyleBackColor = true;
             // 
-            // clbRoles
+            // errorProvider
             // 
-            this.clbRoles.FormattingEnabled = true;
-            this.clbRoles.Location = new System.Drawing.Point(6, 231);
-            this.clbRoles.Name = "clbRoles";
-            this.clbRoles.Size = new System.Drawing.Size(159, 70);
-            this.clbRoles.TabIndex = 97;
+            this.errorProvider.ContainerControl = this;
             // 
             // frmAddEditUser
             // 
@@ -381,6 +389,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,5 +427,6 @@
         private TextBox txtSurname;
         private Label label3;
         private CheckedListBox clbRoles;
+        private ErrorProvider errorProvider;
     }
 }

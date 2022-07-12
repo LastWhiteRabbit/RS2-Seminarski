@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using RS2Seminarski.Model;
 using RS2Seminarski.Model.Requests;
 using RS2Seminarski.Model.SearchObjects;
 using RS2Seminarski.WebAPI.Database;
@@ -18,6 +19,11 @@ namespace RS2Seminarski.WebAPI.Services
 
         public override async Task<Model.User> InsertAsync(UserInsertRequest insert)
         {
+            if(insert.Password != insert.PasswordConfirmation)
+            {
+                throw new UserException("Password does not match your password confirmation!");
+            }
+
             var entity = await base.InsertAsync(insert);
 
             foreach (var roleId in insert.RoleIdList)
@@ -35,7 +41,7 @@ namespace RS2Seminarski.WebAPI.Services
             return  entity;
         }
 
-        public override void BeforeInsert(UserInsertRequest insert, User entity)
+        public override void BeforeInsert(UserInsertRequest insert, Database.User entity)
         {
             var salt = GenerateSalt();
             entity.PaswordSalt = salt;
@@ -82,7 +88,7 @@ namespace RS2Seminarski.WebAPI.Services
             return filteredQuery;
         }
 
-        public override IQueryable<User> AddInclude(IQueryable<User> query, UserSearchObject search = null)
+        public override IQueryable<Database.User> AddInclude(IQueryable<Database.User> query, UserSearchObject search = null)
         {
             if (search.IncludeRoles == true)
             {

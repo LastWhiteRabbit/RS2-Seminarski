@@ -19,7 +19,7 @@ namespace RS2Seminarski.WebAPI.Controllers
         }
 
 
-        [Authorize("Administrator")]
+        //[Authorize("Administrator")]
         public override Task<User> Update(int id, [FromBody] UserUpdateRequest update)
         {
             return base.Update(id, update);

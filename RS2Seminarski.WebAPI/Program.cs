@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using RS2Seminarski.Model.SearchObjects;
 using RS2Seminarski.WebAPI.Database;
+using RS2Seminarski.WebAPI.Filters;
 using RS2Seminarski.WebAPI.Helpers;
 using RS2Seminarski.WebAPI.Interfaces;
 using RS2Seminarski.WebAPI.Services;
@@ -11,7 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(x =>
+{
+    x.Filters.Add<ErrorFilter>();
+});
 
 builder.Services.AddTransient<IWeatherForecastService, WeatherForecastService>();
 builder.Services.AddTransient<IUserService, UserService>();

@@ -27,39 +27,43 @@ namespace RS2Seminarski.WinUI
 
         private async void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            var roleList = clbRoles.CheckedItems.Cast<Role>().ToList();
-            var roleIdList = roleList.Select(x => x.RoleId).ToList();
-
-            if (_model == null)
+            if (ValidateChildren())
             {
-                UserInsertRequest insertRequest = new UserInsertRequest()
-                {
-                    Name = txtName.Text,
-                    Surname = txtSurname.Text,
-                    Email = txtEmail.Text,
-                    Mobile = txtMobile.Text,
-                    UserName = txtUsername.Text,
-                    Password = txtPassword.Text,
-                    PasswordConfirmation = txtConfirmPassword.Text,
-                    Status = cbStatus.Checked,
-                    RoleIdList = roleIdList
-                };
+                var roleList = clbRoles.CheckedItems.Cast<Role>().ToList();
+                var roleIdList = roleList.Select(x => x.RoleId).ToList();
 
-                var user = await UserService.Post<User>(insertRequest);
-            }
-
-            else
-            {
-                UserUpdateRequest updateRequest = new UserUpdateRequest
+                if (_model == null)
                 {
-                    Name = txtName.Text,
-                    Surname = txtSurname.Text,
-                    Email = txtEmail.Text,
-                    Mobile = txtMobile.Text,
-                    Password = txtPassword.Text,
-                    Status = cbStatus.Checked
-                };
-                _model = await UserService.Put<User>(_model.UserId, updateRequest);
+                    UserInsertRequest insertRequest = new UserInsertRequest()
+                    {
+                        Name = txtName.Text,
+                        Surname = txtSurname.Text,
+                        Email = txtEmail.Text,
+                        Mobile = txtMobile.Text,
+                        UserName = txtUsername.Text,
+                        Password = txtPassword.Text,
+                        PasswordConfirmation = txtConfirmPassword.Text,
+                        Status = cbStatus.Checked,
+                        RoleIdList = roleIdList
+                    };
+
+                    var user = await UserService.Post<User>(insertRequest);
+                }
+
+                else
+                {
+                    UserUpdateRequest updateRequest = new UserUpdateRequest
+                    {
+                        Name = txtName.Text,
+                        Surname = txtSurname.Text,
+                        Email = txtEmail.Text,
+                        Mobile = txtMobile.Text,
+                        Password = txtPassword.Text,
+                        PasswordConfirmation = txtConfirmPassword.Text,
+                        Status = cbStatus.Checked
+                    };
+                    _model = await UserService.Put<User>(_model.UserId, updateRequest);
+                }
             }
         }
 
@@ -83,6 +87,21 @@ namespace RS2Seminarski.WinUI
             var roles = await RoleService.Get<List<Role>>();
             clbRoles.DataSource = roles;
             clbRoles.DisplayMember = "Name";
+        }
+
+        private void txtUsername_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                e.Cancel = true;
+                txtUsername.Focus();
+                errorProvider.SetError(txtUsername, "Username should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtUsername, "");
+            }
         }
     }
 }
