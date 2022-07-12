@@ -17,6 +17,11 @@ namespace RS2Seminarski.Model
 
         public virtual ICollection<ExerciseExerciseType> ExerciseExerciseTypes { get; set; }
         public virtual ICollection<ExerciseMuscle> ExerciseMuscles { get; set; }
-       // public virtual ICollection<RoutineExercise> RoutineExercises { get; set; }
+        // public virtual ICollection<RoutineExercise> RoutineExercises { get; set; }
+
+        public string TypeNames => string.Join(", ", ExerciseExerciseTypes?.Select(x => x.ExerciseType?.ExerciseTypeName)?.ToList());
+        public string MuscleNames => string.Join(", ", ExerciseMuscles?.Select(x => x.Muscle?.MuscleName)?.ToList());
+
+
     }
 }
