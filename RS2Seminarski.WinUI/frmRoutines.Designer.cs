@@ -200,6 +200,7 @@
             this.dgvRoutineList.Name = "dgvRoutineList";
             this.dgvRoutineList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvRoutineList.RowTemplate.Height = 29;
+            this.dgvRoutineList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRoutineList.Size = new System.Drawing.Size(483, 253);
             this.dgvRoutineList.TabIndex = 32;
             // 

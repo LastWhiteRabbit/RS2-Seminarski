@@ -42,5 +42,13 @@ namespace RS2Seminarski.WinUI
         {
             new frmAddEditUser().Show();
         }
+
+        private void dgvUserList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var item = dgvUserList.SelectedRows[0].DataBoundItem as User;
+
+            frmAddEditUser frmAddEditUser = new frmAddEditUser(item);
+            frmAddEditUser.ShowDialog();
+        }
     }
 }

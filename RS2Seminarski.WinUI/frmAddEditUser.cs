@@ -1,4 +1,5 @@
 ﻿using RS2Seminarski.Model;
+using RS2Seminarski.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,19 +17,65 @@ namespace RS2Seminarski.WinUI
         public APIService UserService { get; set; } = new APIService("User");
         public APIService RoleService { get; set; } = new APIService("Role");
 
-        public frmAddEditUser()
+        private User _model = null;
+
+        public frmAddEditUser(User model = null)
         {
             InitializeComponent();
+            _model = model;
         }
 
-        private void btnSaveChanges_Click(object sender, EventArgs e)
+        private async void btnSaveChanges_Click(object sender, EventArgs e)
         {
+            var roleList = clbRoles.CheckedItems.Cast<Role>().ToList();
+            var roleIdList = roleList.Select(x => x.RoleId).ToList();
 
+            if (_model == null)
+            {
+                UserInsertRequest insertRequest = new UserInsertRequest()
+                {
+                    Name = txtName.Text,
+                    Surname = txtSurname.Text,
+                    Email = txtEmail.Text,
+                    Mobile = txtMobile.Text,
+                    UserName = txtUsername.Text,
+                    Password = txtPassword.Text,
+                    PasswordConfirmation = txtConfirmPassword.Text,
+                    Status = cbStatus.Checked,
+                    RoleIdList = roleIdList
+                };
+
+                var user = await UserService.Post<User>(insertRequest);
+            }
+
+            else
+            {
+                UserUpdateRequest updateRequest = new UserUpdateRequest
+                {
+                    Name = txtName.Text,
+                    Surname = txtSurname.Text,
+                    Email = txtEmail.Text,
+                    Mobile = txtMobile.Text,
+                    Password = txtPassword.Text,
+                    Status = cbStatus.Checked
+                };
+                _model = await UserService.Put<User>(_model.UserId, updateRequest);
+            }
         }
 
         private async void frmAddEditUser_Load(object sender, EventArgs e)
         {
             await LoadRoles();
+
+            if(_model != null)
+            {
+                txtName.Text = _model.Name;
+                txtSurname.Text = _model.Surname;
+                txtEmail.Text = _model.Email;
+                txtMobile.Text = _model.Mobile;
+                cbStatus.Checked = _model.Status.GetValueOrDefault(false);
+                txtUsername.Text = _model.UserName;
+            }
 
         }
         private async Task LoadRoles()

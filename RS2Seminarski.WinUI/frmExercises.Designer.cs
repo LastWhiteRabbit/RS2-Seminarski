@@ -200,6 +200,7 @@
             this.dgvExerciseList.Name = "dgvExerciseList";
             this.dgvExerciseList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvExerciseList.RowTemplate.Height = 29;
+            this.dgvExerciseList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvExerciseList.Size = new System.Drawing.Size(483, 253);
             this.dgvExerciseList.TabIndex = 16;
             // 

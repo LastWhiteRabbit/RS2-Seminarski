@@ -71,8 +71,10 @@
             this.dgvUserList.Name = "dgvUserList";
             this.dgvUserList.RowHeadersWidth = 51;
             this.dgvUserList.RowTemplate.Height = 29;
+            this.dgvUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUserList.Size = new System.Drawing.Size(483, 253);
             this.dgvUserList.TabIndex = 0;
+            this.dgvUserList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserList_CellDoubleClick);
             // 
             // NameUser
             // 
