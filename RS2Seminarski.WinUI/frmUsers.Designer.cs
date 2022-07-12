@@ -201,6 +201,7 @@
             this.btnAddUser.Size = new System.Drawing.Size(53, 58);
             this.btnAddUser.TabIndex = 7;
             this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // btnEditUser
             // 

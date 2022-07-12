@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using RS2Seminarski.Model.SearchObjects;
 using RS2Seminarski.WebAPI.Database;
 using RS2Seminarski.WebAPI.Helpers;
 using RS2Seminarski.WebAPI.Interfaces;
@@ -17,6 +18,7 @@ builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IExerciseService, ExerciseService>();
 builder.Services.AddTransient<IRoutineService, RoutineService>();
 builder.Services.AddTransient<ILevelService, LevelService>();
+builder.Services.AddTransient<IService<RS2Seminarski.Model.Role, BaseSearchObject>, BaseService<RS2Seminarski.Model.Role,Role, BaseSearchObject >> ();
 
 builder.Services.AddDbContext<DataContext>(options =>
 {
