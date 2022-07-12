@@ -19,16 +19,23 @@ namespace RS2Seminarski.WinUI
         public frmUsers()
         {
             InitializeComponent();
+            dgvUserList.AutoGenerateColumns = false;
         }
 
         private async void btnShow_Click(object sender, EventArgs e)
         {
             var searchObject = new UserSearchObject();
             searchObject.UserName = txtSearchUser.Text;
+            searchObject.IncludeRoles = true;
 
             var list = await UserService.Get<List<User>>(searchObject);
 
             dgvUserList.DataSource = list;
+        }
+
+        private void frmUsers_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

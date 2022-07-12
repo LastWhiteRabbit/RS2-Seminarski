@@ -13,5 +13,7 @@ namespace RS2Seminarski.Model.SearchObjects
 
         public string? Email { get; set; }
 
+        public bool IncludeRoles { get; set; }
+
     }
 }

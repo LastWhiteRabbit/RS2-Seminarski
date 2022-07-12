@@ -30,6 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsers));
             this.dgvUserList = new System.Windows.Forms.DataGridView();
+            this.NameUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.RoleNames = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnShow = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnExercises = new System.Windows.Forms.Button();
@@ -52,12 +59,78 @@
             // dgvUserList
             // 
             this.dgvUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUserList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NameUser,
+            this.Surname,
+            this.Email,
+            this.Mobile,
+            this.UserName,
+            this.Status,
+            this.RoleNames});
             this.dgvUserList.Location = new System.Drawing.Point(209, 83);
             this.dgvUserList.Name = "dgvUserList";
-            this.dgvUserList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvUserList.RowHeadersWidth = 51;
             this.dgvUserList.RowTemplate.Height = 29;
             this.dgvUserList.Size = new System.Drawing.Size(483, 253);
             this.dgvUserList.TabIndex = 0;
+            // 
+            // NameUser
+            // 
+            this.NameUser.DataPropertyName = "Name";
+            this.NameUser.HeaderText = "Name";
+            this.NameUser.MinimumWidth = 6;
+            this.NameUser.Name = "NameUser";
+            this.NameUser.Width = 125;
+            // 
+            // Surname
+            // 
+            this.Surname.DataPropertyName = "Surname";
+            this.Surname.HeaderText = "Surname";
+            this.Surname.MinimumWidth = 6;
+            this.Surname.Name = "Surname";
+            this.Surname.Width = 125;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.Width = 125;
+            // 
+            // Mobile
+            // 
+            this.Mobile.DataPropertyName = "Mobile";
+            this.Mobile.HeaderText = "Mobile";
+            this.Mobile.MinimumWidth = 6;
+            this.Mobile.Name = "Mobile";
+            this.Mobile.Width = 125;
+            // 
+            // UserName
+            // 
+            this.UserName.DataPropertyName = "UserName";
+            this.UserName.HeaderText = "UserName";
+            this.UserName.MinimumWidth = 6;
+            this.UserName.Name = "UserName";
+            this.UserName.Width = 125;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Status.Width = 125;
+            // 
+            // RoleNames
+            // 
+            this.RoleNames.DataPropertyName = "RoleNames";
+            this.RoleNames.HeaderText = "Roles";
+            this.RoleNames.MinimumWidth = 6;
+            this.RoleNames.Name = "RoleNames";
+            this.RoleNames.Width = 125;
             // 
             // btnShow
             // 
@@ -227,6 +300,7 @@
             this.Controls.Add(this.dgvUserList);
             this.Name = "frmUsers";
             this.Text = "frmUsers";
+            this.Load += new System.EventHandler(this.frmUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             this.ResumeLayout(false);
@@ -252,5 +326,12 @@
         private Label lblRole;
         private Button btnLogout;
         private Label label1;
+        private DataGridViewTextBoxColumn NameUser;
+        private DataGridViewTextBoxColumn Surname;
+        private DataGridViewTextBoxColumn Email;
+        private DataGridViewTextBoxColumn Mobile;
+        private DataGridViewTextBoxColumn UserName;
+        private DataGridViewCheckBoxColumn Status;
+        private DataGridViewTextBoxColumn RoleNames;
     }
 }

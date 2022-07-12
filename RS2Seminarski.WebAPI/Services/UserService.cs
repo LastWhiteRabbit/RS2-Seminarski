@@ -82,6 +82,15 @@ namespace RS2Seminarski.WebAPI.Services
             return filteredQuery;
         }
 
+        public override IQueryable<User> AddInclude(IQueryable<User> query, UserSearchObject search = null)
+        {
+            if (search.IncludeRoles == true)
+            {
+                query = query.Include("UserRoles.Role");
+            }
+            return query;
+        }
+
         public Model.User Login(string username, string password)
         {
             var entity = _context.Users.Include("UserRoles.Role").FirstOrDefault(x => x.UserName == username);

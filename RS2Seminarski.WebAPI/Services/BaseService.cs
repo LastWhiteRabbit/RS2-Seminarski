@@ -26,7 +26,7 @@ namespace RS2Seminarski.WebAPI.Services
             return _mapper.Map<T>(result);
         }
 
-        public async Task<IEnumerable<T>> GetAsync(TSearch search = null)
+        public virtual async Task<IEnumerable<T>> GetAsync(TSearch search = null)
         {
             //This is how you return WeatherForecasts without using AutoMapper
 
@@ -47,6 +47,8 @@ namespace RS2Seminarski.WebAPI.Services
 
             entity = AddFilter(entity, search);
 
+            entity = AddInclude(entity, search);
+
             if (search?.Page.HasValue == true && search?.PageSize.HasValue == true)
             {
                 entity = entity.Take(search.PageSize.Value).Skip(search.Page.Value * search.PageSize.Value);
@@ -55,6 +57,11 @@ namespace RS2Seminarski.WebAPI.Services
             var list = await entity.ToListAsync();
 
             return _mapper.Map<IEnumerable<T>>(list);
+        }
+
+        public virtual IQueryable<TDb> AddInclude(IQueryable<TDb> query, TSearch search = null)
+        {
+            return query;
         }
 
         public virtual IQueryable<TDb> AddFilter(IQueryable<TDb> query, TSearch search = null)
