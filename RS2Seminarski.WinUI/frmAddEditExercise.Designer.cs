@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.pbUser = new System.Windows.Forms.PictureBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnDeleteRoutine = new System.Windows.Forms.Button();
-            this.btnShow = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtAbout = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbAlternativeExercise = new System.Windows.Forms.ComboBox();
             this.txtInstruction = new System.Windows.Forms.TextBox();
@@ -46,28 +47,24 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnRemoveType = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.btnAddType = new System.Windows.Forms.Button();
+            this.clbTypes = new System.Windows.Forms.CheckedListBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cmbType = new System.Windows.Forms.ComboBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnRemoveMuscle = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.btnAddMuscle = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmbMainMuscles = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnBrowseImage = new System.Windows.Forms.Button();
             this.pbExerciseImage = new System.Windows.Forms.PictureBox();
             this.btnSaveChangesAddExercise = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.clbMuscles = new System.Windows.Forms.CheckedListBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbExerciseImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -118,34 +115,20 @@
             this.pbUser.TabIndex = 59;
             this.pbUser.TabStop = false;
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(209, 50);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(204, 27);
-            this.txtSearch.TabIndex = 58;
-            // 
             // btnDeleteRoutine
             // 
             this.btnDeleteRoutine.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.seo_social_web_network_internet_262_icon_icons_com_61518;
             this.btnDeleteRoutine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDeleteRoutine.Location = new System.Drawing.Point(130, 348);
+            this.btnDeleteRoutine.Location = new System.Drawing.Point(17, 348);
             this.btnDeleteRoutine.Name = "btnDeleteRoutine";
             this.btnDeleteRoutine.Size = new System.Drawing.Size(53, 58);
             this.btnDeleteRoutine.TabIndex = 57;
             this.btnDeleteRoutine.UseVisualStyleBackColor = true;
             // 
-            // btnShow
-            // 
-            this.btnShow.Location = new System.Drawing.Point(319, 16);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(94, 29);
-            this.btnShow.TabIndex = 49;
-            this.btnShow.Text = "Show";
-            this.btnShow.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.txtAbout);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cmbAlternativeExercise);
             this.groupBox1.Controls.Add(this.txtInstruction);
@@ -154,11 +137,28 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(209, 83);
+            this.groupBox1.Location = new System.Drawing.Point(12, 83);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(507, 125);
+            this.groupBox1.Size = new System.Drawing.Size(704, 125);
             this.groupBox1.TabIndex = 64;
             this.groupBox1.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(424, 26);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 20);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "About:";
+            // 
+            // txtAbout
+            // 
+            this.txtAbout.Location = new System.Drawing.Point(424, 46);
+            this.txtAbout.Multiline = true;
+            this.txtAbout.Name = "txtAbout";
+            this.txtAbout.Size = new System.Drawing.Size(178, 70);
+            this.txtAbout.TabIndex = 9;
             // 
             // label5
             // 
@@ -180,10 +180,10 @@
             // 
             // txtInstruction
             // 
-            this.txtInstruction.Location = new System.Drawing.Point(323, 26);
+            this.txtInstruction.Location = new System.Drawing.Point(240, 46);
             this.txtInstruction.Multiline = true;
             this.txtInstruction.Name = "txtInstruction";
-            this.txtInstruction.Size = new System.Drawing.Size(178, 90);
+            this.txtInstruction.Size = new System.Drawing.Size(178, 70);
             this.txtInstruction.TabIndex = 6;
             // 
             // cmbLevel
@@ -230,43 +230,21 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnRemoveType);
-            this.groupBox2.Controls.Add(this.listBox1);
-            this.groupBox2.Controls.Add(this.btnAddType);
+            this.groupBox2.Controls.Add(this.clbTypes);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.cmbType);
-            this.groupBox2.Location = new System.Drawing.Point(209, 209);
+            this.groupBox2.Location = new System.Drawing.Point(96, 209);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(129, 197);
+            this.groupBox2.Size = new System.Drawing.Size(164, 197);
             this.groupBox2.TabIndex = 65;
             this.groupBox2.TabStop = false;
             // 
-            // btnRemoveType
+            // clbTypes
             // 
-            this.btnRemoveType.Location = new System.Drawing.Point(8, 159);
-            this.btnRemoveType.Name = "btnRemoveType";
-            this.btnRemoveType.Size = new System.Drawing.Size(75, 26);
-            this.btnRemoveType.TabIndex = 4;
-            this.btnRemoveType.Text = "Remove";
-            this.btnRemoveType.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(8, 109);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(109, 44);
-            this.listBox1.TabIndex = 3;
-            // 
-            // btnAddType
-            // 
-            this.btnAddType.Location = new System.Drawing.Point(6, 77);
-            this.btnAddType.Name = "btnAddType";
-            this.btnAddType.Size = new System.Drawing.Size(57, 26);
-            this.btnAddType.TabIndex = 2;
-            this.btnAddType.Text = "Add";
-            this.btnAddType.UseVisualStyleBackColor = true;
+            this.clbTypes.FormattingEnabled = true;
+            this.clbTypes.Location = new System.Drawing.Point(8, 53);
+            this.clbTypes.Name = "clbTypes";
+            this.clbTypes.Size = new System.Drawing.Size(142, 114);
+            this.clbTypes.TabIndex = 2;
             // 
             // label6
             // 
@@ -276,71 +254,6 @@
             this.label6.Size = new System.Drawing.Size(43, 20);
             this.label6.TabIndex = 1;
             this.label6.Text = "Type:";
-            // 
-            // cmbType
-            // 
-            this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(6, 43);
-            this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(111, 28);
-            this.cmbType.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnRemoveMuscle);
-            this.groupBox3.Controls.Add(this.listBox2);
-            this.groupBox3.Controls.Add(this.btnAddMuscle);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.cmbMainMuscles);
-            this.groupBox3.Location = new System.Drawing.Point(344, 209);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(129, 197);
-            this.groupBox3.TabIndex = 66;
-            this.groupBox3.TabStop = false;
-            // 
-            // btnRemoveMuscle
-            // 
-            this.btnRemoveMuscle.Location = new System.Drawing.Point(8, 159);
-            this.btnRemoveMuscle.Name = "btnRemoveMuscle";
-            this.btnRemoveMuscle.Size = new System.Drawing.Size(75, 26);
-            this.btnRemoveMuscle.TabIndex = 4;
-            this.btnRemoveMuscle.Text = "Remove";
-            this.btnRemoveMuscle.UseVisualStyleBackColor = true;
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 20;
-            this.listBox2.Location = new System.Drawing.Point(8, 109);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(109, 44);
-            this.listBox2.TabIndex = 3;
-            // 
-            // btnAddMuscle
-            // 
-            this.btnAddMuscle.Location = new System.Drawing.Point(6, 77);
-            this.btnAddMuscle.Name = "btnAddMuscle";
-            this.btnAddMuscle.Size = new System.Drawing.Size(57, 26);
-            this.btnAddMuscle.TabIndex = 2;
-            this.btnAddMuscle.Text = "Add";
-            this.btnAddMuscle.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 20);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Main muscles:";
-            // 
-            // cmbMainMuscles
-            // 
-            this.cmbMainMuscles.FormattingEnabled = true;
-            this.cmbMainMuscles.Location = new System.Drawing.Point(6, 43);
-            this.cmbMainMuscles.Name = "cmbMainMuscles";
-            this.cmbMainMuscles.Size = new System.Drawing.Size(111, 28);
-            this.cmbMainMuscles.TabIndex = 0;
             // 
             // groupBox4
             // 
@@ -388,15 +301,47 @@
             this.btnSaveChangesAddExercise.TabIndex = 68;
             this.btnSaveChangesAddExercise.Text = "Save changes";
             this.btnSaveChangesAddExercise.UseVisualStyleBackColor = false;
+            this.btnSaveChangesAddExercise.Click += new System.EventHandler(this.btnSaveChangesAddExercise_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.clbMuscles);
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Location = new System.Drawing.Point(281, 209);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(164, 197);
+            this.groupBox5.TabIndex = 66;
+            this.groupBox5.TabStop = false;
+            // 
+            // clbMuscles
+            // 
+            this.clbMuscles.FormattingEnabled = true;
+            this.clbMuscles.Location = new System.Drawing.Point(8, 53);
+            this.clbMuscles.Name = "clbMuscles";
+            this.clbMuscles.Size = new System.Drawing.Size(142, 114);
+            this.clbMuscles.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 20);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(101, 20);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Main muscles:";
             // 
             // frmAddEditExercise
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 418);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btnSaveChangesAddExercise);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -404,21 +349,21 @@
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.pbUser);
-            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnDeleteRoutine);
-            this.Controls.Add(this.btnShow);
             this.Name = "frmAddEditExercise";
             this.Text = "frmAddEditExercise";
+            this.Load += new System.EventHandler(this.frmAddEditExercise_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbExerciseImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,9 +376,7 @@
         private Label lblRole;
         private Label lblUsername;
         private PictureBox pbUser;
-        private TextBox txtSearch;
         private Button btnDeleteRoutine;
-        private Button btnShow;
         private GroupBox groupBox1;
         private Label label5;
         private ComboBox cmbAlternativeExercise;
@@ -444,21 +387,18 @@
         private TextBox txtName;
         private Label label2;
         private GroupBox groupBox2;
-        private Button btnRemoveType;
-        private ListBox listBox1;
-        private Button btnAddType;
         private Label label6;
-        private ComboBox cmbType;
-        private GroupBox groupBox3;
-        private Button btnRemoveMuscle;
-        private ListBox listBox2;
-        private Button btnAddMuscle;
-        private Label label7;
-        private ComboBox cmbMainMuscles;
         private GroupBox groupBox4;
         private Label label8;
         private Button btnBrowseImage;
         private PictureBox pbExerciseImage;
         private Button btnSaveChangesAddExercise;
+        private ErrorProvider errorProvider;
+        private CheckedListBox clbTypes;
+        private Label label9;
+        private TextBox txtAbout;
+        private GroupBox groupBox5;
+        private CheckedListBox clbMuscles;
+        private Label label10;
     }
 }

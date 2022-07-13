@@ -139,6 +139,7 @@
             this.btnAddExercise.Size = new System.Drawing.Size(53, 58);
             this.btnAddExercise.TabIndex = 23;
             this.btnAddExercise.UseVisualStyleBackColor = true;
+            this.btnAddExercise.Click += new System.EventHandler(this.btnAddExercise_Click);
             // 
             // btnStats
             // 

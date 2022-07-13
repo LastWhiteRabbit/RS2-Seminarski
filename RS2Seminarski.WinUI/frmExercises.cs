@@ -68,5 +68,11 @@ namespace RS2Seminarski.WinUI
 
             dgvExerciseList.DataSource = list;
         }
+
+        private void btnAddExercise_Click(object sender, EventArgs e)
+        {
+            new frmAddEditExercise().Show();
+
+        }
     }
 }
