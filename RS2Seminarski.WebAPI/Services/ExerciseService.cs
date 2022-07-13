@@ -56,8 +56,8 @@ namespace RS2Seminarski.WebAPI.Services
 
         public override IQueryable<Database.Exercise> AddInclude(IQueryable<Database.Exercise> query, ExerciseSearchObject search = null)
         {
-            
-            query = query.Include("ExerciseMuscles.Muscle");
+
+            query = query.Include("ExerciseMuscles.Muscle").Include("ExerciseExerciseTypes.ExerciseType");
             
             return query;
         }

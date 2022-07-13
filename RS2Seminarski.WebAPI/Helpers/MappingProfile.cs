@@ -14,6 +14,8 @@ namespace RS2Seminarski.WebAPI.Helpers
             CreateMap<Database.Exercise, Model.Exercise>();
             CreateMap<Database.ExerciseMuscle, Model.ExerciseMuscle>();
             CreateMap<Database.Muscle, Model.Muscle>();
+            CreateMap<Database.ExerciseExerciseType, Model.ExerciseExerciseType>();
+            CreateMap<Database.ExerciseType, Model.ExerciseType>();
             CreateMap<Database.Routine, Model.Routine>();
             CreateMap<Database.Level, Model.Level>();
 
