@@ -48,6 +48,7 @@
             this.RoutineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExerciseNames = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoutineList)).BeginInit();
             this.SuspendLayout();
@@ -207,7 +208,8 @@
             this.dgvRoutineList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoutineName,
             this.Description,
-            this.Rating});
+            this.Rating,
+            this.ExerciseNames});
             this.dgvRoutineList.Location = new System.Drawing.Point(209, 83);
             this.dgvRoutineList.Name = "dgvRoutineList";
             this.dgvRoutineList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -239,6 +241,14 @@
             this.Rating.MinimumWidth = 6;
             this.Rating.Name = "Rating";
             this.Rating.Width = 125;
+            // 
+            // ExerciseNames
+            // 
+            this.ExerciseNames.DataPropertyName = "ExerciseNames";
+            this.ExerciseNames.HeaderText = "Exercises";
+            this.ExerciseNames.MinimumWidth = 6;
+            this.ExerciseNames.Name = "ExerciseNames";
+            this.ExerciseNames.Width = 125;
             // 
             // frmRoutines
             // 
@@ -291,5 +301,6 @@
         private DataGridViewTextBoxColumn RoutineName;
         private DataGridViewTextBoxColumn Description;
         private DataGridViewTextBoxColumn Rating;
+        private DataGridViewTextBoxColumn ExerciseNames;
     }
 }

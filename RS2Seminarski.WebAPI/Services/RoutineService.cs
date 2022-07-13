@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using RS2Seminarski.Model.Requests;
 using RS2Seminarski.Model.SearchObjects;
 using RS2Seminarski.WebAPI.Database;
@@ -44,6 +45,14 @@ namespace RS2Seminarski.WebAPI.Services
 
 
             return filteredQuery;
+        }
+
+        public override IQueryable<Database.Routine> AddInclude(IQueryable<Database.Routine> query, RoutineSearchObject search = null)
+        {
+
+            query = query.Include("RoutineExercises.Exercise");
+
+            return query;
         }
     }
 }

@@ -49,8 +49,8 @@
             this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Instruction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.About = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExerciseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExerciseMuscles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeNames = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MuscleNames = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExerciseList)).BeginInit();
             this.SuspendLayout();
@@ -212,8 +212,8 @@
             this.Level,
             this.Instruction,
             this.About,
-            this.ExerciseType,
-            this.ExerciseMuscles});
+            this.TypeNames,
+            this.MuscleNames});
             this.dgvExerciseList.Location = new System.Drawing.Point(209, 83);
             this.dgvExerciseList.Name = "dgvExerciseList";
             this.dgvExerciseList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -254,21 +254,21 @@
             this.About.Name = "About";
             this.About.Width = 125;
             // 
-            // ExerciseType
+            // TypeNames
             // 
-            this.ExerciseType.DataPropertyName = "ExerciseType";
-            this.ExerciseType.HeaderText = "ExerciseType";
-            this.ExerciseType.MinimumWidth = 6;
-            this.ExerciseType.Name = "ExerciseType";
-            this.ExerciseType.Width = 125;
+            this.TypeNames.DataPropertyName = "TypeNames";
+            this.TypeNames.HeaderText = "ExerciseType";
+            this.TypeNames.MinimumWidth = 6;
+            this.TypeNames.Name = "TypeNames";
+            this.TypeNames.Width = 125;
             // 
-            // ExerciseMuscles
+            // MuscleNames
             // 
-            this.ExerciseMuscles.DataPropertyName = "ExerciseMuscles";
-            this.ExerciseMuscles.HeaderText = "Muscles worked";
-            this.ExerciseMuscles.MinimumWidth = 6;
-            this.ExerciseMuscles.Name = "ExerciseMuscles";
-            this.ExerciseMuscles.Width = 125;
+            this.MuscleNames.DataPropertyName = "MuscleNames";
+            this.MuscleNames.HeaderText = "Muscles worked";
+            this.MuscleNames.MinimumWidth = 6;
+            this.MuscleNames.Name = "MuscleNames";
+            this.MuscleNames.Width = 125;
             // 
             // frmExercises
             // 
@@ -322,7 +322,7 @@
         private DataGridViewTextBoxColumn Level;
         private DataGridViewTextBoxColumn Instruction;
         private DataGridViewTextBoxColumn About;
-        private DataGridViewTextBoxColumn ExerciseType;
-        private DataGridViewTextBoxColumn ExerciseMuscles;
+        private DataGridViewTextBoxColumn TypeNames;
+        private DataGridViewTextBoxColumn MuscleNames;
     }
 }

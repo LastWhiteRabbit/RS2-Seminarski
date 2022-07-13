@@ -13,7 +13,10 @@ namespace RS2Seminarski.Model
         public string? Description { get; set; }
         public int? Rating { get; set; }
 
-        //public virtual ICollection<RoutineExercise> RoutineExercises { get; set; }
+        public virtual ICollection<RoutineExercise> RoutineExercises { get; set; }
         //public virtual ICollection<RoutineUser> RoutineUsers { get; set; }
+
+        public string ExerciseNames => string.Join(", ", RoutineExercises?.Select(x => x.Exercise?.ExerciseName)?.ToList());
+
     }
 }
