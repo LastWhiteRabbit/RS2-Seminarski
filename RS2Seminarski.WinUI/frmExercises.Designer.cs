@@ -45,6 +45,12 @@
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
             this.dgvExerciseList = new System.Windows.Forms.DataGridView();
+            this.ExerciseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Instruction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.About = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExerciseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExerciseMuscles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExerciseList)).BeginInit();
             this.SuspendLayout();
@@ -143,6 +149,7 @@
             this.btnStats.Size = new System.Drawing.Size(139, 44);
             this.btnStats.TabIndex = 22;
             this.btnStats.UseVisualStyleBackColor = true;
+            this.btnStats.Click += new System.EventHandler(this.btnStats_Click);
             // 
             // btnSettings
             // 
@@ -153,6 +160,7 @@
             this.btnSettings.Size = new System.Drawing.Size(139, 44);
             this.btnSettings.TabIndex = 21;
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnRoutines
             // 
@@ -163,6 +171,7 @@
             this.btnRoutines.Size = new System.Drawing.Size(139, 44);
             this.btnRoutines.TabIndex = 20;
             this.btnRoutines.UseVisualStyleBackColor = true;
+            this.btnRoutines.Click += new System.EventHandler(this.btnRoutines_Click);
             // 
             // btnExercises
             // 
@@ -183,6 +192,7 @@
             this.btnUsers.Size = new System.Drawing.Size(139, 44);
             this.btnUsers.TabIndex = 18;
             this.btnUsers.UseVisualStyleBackColor = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnShow
             // 
@@ -192,10 +202,18 @@
             this.btnShow.TabIndex = 17;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // dgvExerciseList
             // 
             this.dgvExerciseList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExerciseList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ExerciseName,
+            this.Level,
+            this.Instruction,
+            this.About,
+            this.ExerciseType,
+            this.ExerciseMuscles});
             this.dgvExerciseList.Location = new System.Drawing.Point(209, 83);
             this.dgvExerciseList.Name = "dgvExerciseList";
             this.dgvExerciseList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -203,6 +221,54 @@
             this.dgvExerciseList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvExerciseList.Size = new System.Drawing.Size(483, 253);
             this.dgvExerciseList.TabIndex = 16;
+            // 
+            // ExerciseName
+            // 
+            this.ExerciseName.DataPropertyName = "ExerciseName";
+            this.ExerciseName.HeaderText = "Exercise Name";
+            this.ExerciseName.MinimumWidth = 6;
+            this.ExerciseName.Name = "ExerciseName";
+            this.ExerciseName.Width = 125;
+            // 
+            // Level
+            // 
+            this.Level.DataPropertyName = "LevelId";
+            this.Level.HeaderText = "Level";
+            this.Level.MinimumWidth = 6;
+            this.Level.Name = "Level";
+            this.Level.Width = 125;
+            // 
+            // Instruction
+            // 
+            this.Instruction.DataPropertyName = "Instruction";
+            this.Instruction.HeaderText = "Instruction";
+            this.Instruction.MinimumWidth = 6;
+            this.Instruction.Name = "Instruction";
+            this.Instruction.Width = 125;
+            // 
+            // About
+            // 
+            this.About.DataPropertyName = "About";
+            this.About.HeaderText = "About";
+            this.About.MinimumWidth = 6;
+            this.About.Name = "About";
+            this.About.Width = 125;
+            // 
+            // ExerciseType
+            // 
+            this.ExerciseType.DataPropertyName = "ExerciseType";
+            this.ExerciseType.HeaderText = "ExerciseType";
+            this.ExerciseType.MinimumWidth = 6;
+            this.ExerciseType.Name = "ExerciseType";
+            this.ExerciseType.Width = 125;
+            // 
+            // ExerciseMuscles
+            // 
+            this.ExerciseMuscles.DataPropertyName = "ExerciseMuscles";
+            this.ExerciseMuscles.HeaderText = "Muscles worked";
+            this.ExerciseMuscles.MinimumWidth = 6;
+            this.ExerciseMuscles.Name = "ExerciseMuscles";
+            this.ExerciseMuscles.Width = 125;
             // 
             // frmExercises
             // 
@@ -252,5 +318,11 @@
         private Button btnUsers;
         private Button btnShow;
         private DataGridView dgvExerciseList;
+        private DataGridViewTextBoxColumn ExerciseName;
+        private DataGridViewTextBoxColumn Level;
+        private DataGridViewTextBoxColumn Instruction;
+        private DataGridViewTextBoxColumn About;
+        private DataGridViewTextBoxColumn ExerciseType;
+        private DataGridViewTextBoxColumn ExerciseMuscles;
     }
 }

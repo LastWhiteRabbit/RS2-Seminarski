@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddEditExercise));
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblRole = new System.Windows.Forms.Label();
@@ -36,27 +35,22 @@
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnDeleteRoutine = new System.Windows.Forms.Button();
-            this.btnStats = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
-            this.btnRoutines = new System.Windows.Forms.Button();
-            this.btnExercises = new System.Windows.Forms.Button();
-            this.btnUsers = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbLevel = new System.Windows.Forms.ComboBox();
-            this.txtInstruction = new System.Windows.Forms.TextBox();
-            this.cmbAlternativeExercise = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmbType = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnAddType = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.cmbAlternativeExercise = new System.Windows.Forms.ComboBox();
+            this.txtInstruction = new System.Windows.Forms.TextBox();
+            this.cmbLevel = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnRemoveType = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnAddType = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbType = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnRemoveMuscle = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
@@ -64,9 +58,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cmbMainMuscles = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.pbExerciseImage = new System.Windows.Forms.PictureBox();
-            this.btnBrowseImage = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnBrowseImage = new System.Windows.Forms.Button();
+            this.pbExerciseImage = new System.Windows.Forms.PictureBox();
             this.btnSaveChangesAddExercise = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -141,56 +135,6 @@
             this.btnDeleteRoutine.TabIndex = 57;
             this.btnDeleteRoutine.UseVisualStyleBackColor = true;
             // 
-            // btnStats
-            // 
-            this.btnStats.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.stats_icon_icons_com_65379;
-            this.btnStats.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnStats.Location = new System.Drawing.Point(26, 251);
-            this.btnStats.Name = "btnStats";
-            this.btnStats.Size = new System.Drawing.Size(139, 44);
-            this.btnStats.TabIndex = 54;
-            this.btnStats.UseVisualStyleBackColor = true;
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources._3592841_cog_gear_general_machine_office_setting_settings_107765;
-            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSettings.Location = new System.Drawing.Point(26, 209);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(139, 44);
-            this.btnSettings.TabIndex = 53;
-            this.btnSettings.UseVisualStyleBackColor = true;
-            // 
-            // btnRoutines
-            // 
-            this.btnRoutines.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.clipboard_120835;
-            this.btnRoutines.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRoutines.Location = new System.Drawing.Point(26, 167);
-            this.btnRoutines.Name = "btnRoutines";
-            this.btnRoutines.Size = new System.Drawing.Size(139, 44);
-            this.btnRoutines.TabIndex = 52;
-            this.btnRoutines.UseVisualStyleBackColor = true;
-            // 
-            // btnExercises
-            // 
-            this.btnExercises.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.weight5_42665;
-            this.btnExercises.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExercises.Location = new System.Drawing.Point(26, 125);
-            this.btnExercises.Name = "btnExercises";
-            this.btnExercises.Size = new System.Drawing.Size(139, 44);
-            this.btnExercises.TabIndex = 51;
-            this.btnExercises.UseVisualStyleBackColor = true;
-            // 
-            // btnUsers
-            // 
-            this.btnUsers.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUsers.BackgroundImage")));
-            this.btnUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnUsers.Location = new System.Drawing.Point(26, 83);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(139, 44);
-            this.btnUsers.TabIndex = 50;
-            this.btnUsers.UseVisualStyleBackColor = true;
-            // 
             // btnShow
             // 
             this.btnShow.Location = new System.Drawing.Point(319, 16);
@@ -216,6 +160,74 @@
             this.groupBox1.TabIndex = 64;
             this.groupBox1.TabStop = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(240, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 20);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Instruction:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // cmbAlternativeExercise
+            // 
+            this.cmbAlternativeExercise.FormattingEnabled = true;
+            this.cmbAlternativeExercise.Location = new System.Drawing.Point(123, 88);
+            this.cmbAlternativeExercise.Name = "cmbAlternativeExercise";
+            this.cmbAlternativeExercise.Size = new System.Drawing.Size(111, 28);
+            this.cmbAlternativeExercise.TabIndex = 7;
+            // 
+            // txtInstruction
+            // 
+            this.txtInstruction.Location = new System.Drawing.Point(323, 26);
+            this.txtInstruction.Multiline = true;
+            this.txtInstruction.Name = "txtInstruction";
+            this.txtInstruction.Size = new System.Drawing.Size(178, 90);
+            this.txtInstruction.TabIndex = 6;
+            // 
+            // cmbLevel
+            // 
+            this.cmbLevel.FormattingEnabled = true;
+            this.cmbLevel.Location = new System.Drawing.Point(6, 88);
+            this.cmbLevel.Name = "cmbLevel";
+            this.cmbLevel.Size = new System.Drawing.Size(111, 28);
+            this.cmbLevel.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(93, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(141, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Alternative exercise:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 66);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Level:";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(6, 35);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(228, 27);
+            this.txtName.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Name:";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnRemoveType);
@@ -229,99 +241,14 @@
             this.groupBox2.TabIndex = 65;
             this.groupBox2.TabStop = false;
             // 
-            // label2
+            // btnRemoveType
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Name:";
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(6, 35);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(228, 27);
-            this.txtName.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 66);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Level:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(93, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Alternative exercise:";
-            // 
-            // cmbLevel
-            // 
-            this.cmbLevel.FormattingEnabled = true;
-            this.cmbLevel.Location = new System.Drawing.Point(6, 88);
-            this.cmbLevel.Name = "cmbLevel";
-            this.cmbLevel.Size = new System.Drawing.Size(111, 28);
-            this.cmbLevel.TabIndex = 4;
-            // 
-            // txtInstruction
-            // 
-            this.txtInstruction.Location = new System.Drawing.Point(323, 26);
-            this.txtInstruction.Multiline = true;
-            this.txtInstruction.Name = "txtInstruction";
-            this.txtInstruction.Size = new System.Drawing.Size(178, 90);
-            this.txtInstruction.TabIndex = 6;
-            // 
-            // cmbAlternativeExercise
-            // 
-            this.cmbAlternativeExercise.FormattingEnabled = true;
-            this.cmbAlternativeExercise.Location = new System.Drawing.Point(123, 88);
-            this.cmbAlternativeExercise.Name = "cmbAlternativeExercise";
-            this.cmbAlternativeExercise.Size = new System.Drawing.Size(111, 28);
-            this.cmbAlternativeExercise.TabIndex = 7;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(240, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 20);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Instruction:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // cmbType
-            // 
-            this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(6, 43);
-            this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(111, 28);
-            this.cmbType.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 20);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Type:";
-            // 
-            // btnAddType
-            // 
-            this.btnAddType.Location = new System.Drawing.Point(6, 77);
-            this.btnAddType.Name = "btnAddType";
-            this.btnAddType.Size = new System.Drawing.Size(57, 26);
-            this.btnAddType.TabIndex = 2;
-            this.btnAddType.Text = "Add";
-            this.btnAddType.UseVisualStyleBackColor = true;
+            this.btnRemoveType.Location = new System.Drawing.Point(8, 159);
+            this.btnRemoveType.Name = "btnRemoveType";
+            this.btnRemoveType.Size = new System.Drawing.Size(75, 26);
+            this.btnRemoveType.TabIndex = 4;
+            this.btnRemoveType.Text = "Remove";
+            this.btnRemoveType.UseVisualStyleBackColor = true;
             // 
             // listBox1
             // 
@@ -332,14 +259,31 @@
             this.listBox1.Size = new System.Drawing.Size(109, 44);
             this.listBox1.TabIndex = 3;
             // 
-            // btnRemoveType
+            // btnAddType
             // 
-            this.btnRemoveType.Location = new System.Drawing.Point(8, 159);
-            this.btnRemoveType.Name = "btnRemoveType";
-            this.btnRemoveType.Size = new System.Drawing.Size(75, 26);
-            this.btnRemoveType.TabIndex = 4;
-            this.btnRemoveType.Text = "Remove";
-            this.btnRemoveType.UseVisualStyleBackColor = true;
+            this.btnAddType.Location = new System.Drawing.Point(6, 77);
+            this.btnAddType.Name = "btnAddType";
+            this.btnAddType.Size = new System.Drawing.Size(57, 26);
+            this.btnAddType.TabIndex = 2;
+            this.btnAddType.Text = "Add";
+            this.btnAddType.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 20);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Type:";
+            // 
+            // cmbType
+            // 
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Location = new System.Drawing.Point(6, 43);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(111, 28);
+            this.cmbType.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -409,13 +353,14 @@
             this.groupBox4.TabIndex = 67;
             this.groupBox4.TabStop = false;
             // 
-            // pbExerciseImage
+            // label8
             // 
-            this.pbExerciseImage.Location = new System.Drawing.Point(6, 21);
-            this.pbExerciseImage.Name = "pbExerciseImage";
-            this.pbExerciseImage.Size = new System.Drawing.Size(92, 87);
-            this.pbExerciseImage.TabIndex = 0;
-            this.pbExerciseImage.TabStop = false;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(105, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 20);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Image";
             // 
             // btnBrowseImage
             // 
@@ -426,14 +371,13 @@
             this.btnBrowseImage.Text = "Browse...";
             this.btnBrowseImage.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // pbExerciseImage
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(105, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 20);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Image";
+            this.pbExerciseImage.Location = new System.Drawing.Point(6, 21);
+            this.pbExerciseImage.Name = "pbExerciseImage";
+            this.pbExerciseImage.Size = new System.Drawing.Size(92, 87);
+            this.pbExerciseImage.TabIndex = 0;
+            this.pbExerciseImage.TabStop = false;
             // 
             // btnSaveChangesAddExercise
             // 
@@ -462,11 +406,6 @@
             this.Controls.Add(this.pbUser);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnDeleteRoutine);
-            this.Controls.Add(this.btnStats);
-            this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.btnRoutines);
-            this.Controls.Add(this.btnExercises);
-            this.Controls.Add(this.btnUsers);
             this.Controls.Add(this.btnShow);
             this.Name = "frmAddEditExercise";
             this.Text = "frmAddEditExercise";
@@ -494,11 +433,6 @@
         private PictureBox pbUser;
         private TextBox txtSearch;
         private Button btnDeleteRoutine;
-        private Button btnStats;
-        private Button btnSettings;
-        private Button btnRoutines;
-        private Button btnExercises;
-        private Button btnUsers;
         private Button btnShow;
         private GroupBox groupBox1;
         private Label label5;

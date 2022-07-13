@@ -117,6 +117,7 @@
             this.btnStats.Size = new System.Drawing.Size(139, 44);
             this.btnStats.TabIndex = 54;
             this.btnStats.UseVisualStyleBackColor = true;
+            this.btnStats.Click += new System.EventHandler(this.btnStats_Click);
             // 
             // btnSettings
             // 
@@ -137,6 +138,7 @@
             this.btnRoutines.Size = new System.Drawing.Size(139, 44);
             this.btnRoutines.TabIndex = 52;
             this.btnRoutines.UseVisualStyleBackColor = true;
+            this.btnRoutines.Click += new System.EventHandler(this.btnRoutines_Click);
             // 
             // btnExercises
             // 
@@ -147,6 +149,7 @@
             this.btnExercises.Size = new System.Drawing.Size(139, 44);
             this.btnExercises.TabIndex = 51;
             this.btnExercises.UseVisualStyleBackColor = true;
+            this.btnExercises.Click += new System.EventHandler(this.btnExercises_Click);
             // 
             // btnUsers
             // 
@@ -157,6 +160,7 @@
             this.btnUsers.Size = new System.Drawing.Size(139, 44);
             this.btnUsers.TabIndex = 50;
             this.btnUsers.UseVisualStyleBackColor = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // groupBox1
             // 

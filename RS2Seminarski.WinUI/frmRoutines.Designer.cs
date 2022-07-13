@@ -45,6 +45,9 @@
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
             this.dgvRoutineList = new System.Windows.Forms.DataGridView();
+            this.RoutineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoutineList)).BeginInit();
             this.SuspendLayout();
@@ -143,6 +146,7 @@
             this.btnStats.Size = new System.Drawing.Size(139, 44);
             this.btnStats.TabIndex = 38;
             this.btnStats.UseVisualStyleBackColor = true;
+            this.btnStats.Click += new System.EventHandler(this.btnStats_Click);
             // 
             // btnSettings
             // 
@@ -153,6 +157,7 @@
             this.btnSettings.Size = new System.Drawing.Size(139, 44);
             this.btnSettings.TabIndex = 37;
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnRoutines
             // 
@@ -173,6 +178,7 @@
             this.btnExercises.Size = new System.Drawing.Size(139, 44);
             this.btnExercises.TabIndex = 35;
             this.btnExercises.UseVisualStyleBackColor = true;
+            this.btnExercises.Click += new System.EventHandler(this.btnExercises_Click);
             // 
             // btnUsers
             // 
@@ -183,6 +189,7 @@
             this.btnUsers.Size = new System.Drawing.Size(139, 44);
             this.btnUsers.TabIndex = 34;
             this.btnUsers.UseVisualStyleBackColor = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnShow
             // 
@@ -192,10 +199,15 @@
             this.btnShow.TabIndex = 33;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // dgvRoutineList
             // 
             this.dgvRoutineList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRoutineList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RoutineName,
+            this.Description,
+            this.Rating});
             this.dgvRoutineList.Location = new System.Drawing.Point(209, 83);
             this.dgvRoutineList.Name = "dgvRoutineList";
             this.dgvRoutineList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -203,6 +215,30 @@
             this.dgvRoutineList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRoutineList.Size = new System.Drawing.Size(483, 253);
             this.dgvRoutineList.TabIndex = 32;
+            // 
+            // RoutineName
+            // 
+            this.RoutineName.DataPropertyName = "RoutineName";
+            this.RoutineName.HeaderText = "Routine Name";
+            this.RoutineName.MinimumWidth = 6;
+            this.RoutineName.Name = "RoutineName";
+            this.RoutineName.Width = 125;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Description";
+            this.Description.MinimumWidth = 6;
+            this.Description.Name = "Description";
+            this.Description.Width = 125;
+            // 
+            // Rating
+            // 
+            this.Rating.DataPropertyName = "Rating";
+            this.Rating.HeaderText = "Rating";
+            this.Rating.MinimumWidth = 6;
+            this.Rating.Name = "Rating";
+            this.Rating.Width = 125;
             // 
             // frmRoutines
             // 
@@ -252,5 +288,8 @@
         private Button btnUsers;
         private Button btnShow;
         private DataGridView dgvRoutineList;
+        private DataGridViewTextBoxColumn RoutineName;
+        private DataGridViewTextBoxColumn Description;
+        private DataGridViewTextBoxColumn Rating;
     }
 }

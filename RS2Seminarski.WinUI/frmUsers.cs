@@ -50,5 +50,41 @@ namespace RS2Seminarski.WinUI
             frmAddEditUser frmAddEditUser = new frmAddEditUser(item);
             frmAddEditUser.ShowDialog();
         }
+
+        private void btnExercises_Click(object sender, EventArgs e)
+        {
+            var frm = new frmExercises();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnRoutines_Click(object sender, EventArgs e)
+        {
+            var frm = new frmRoutines();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            var frm = new frmSettings();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnStats_Click(object sender, EventArgs e)
+        {
+            var frm = new frmStats();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.Show();
+            this.Hide();
+        }
     }
 }

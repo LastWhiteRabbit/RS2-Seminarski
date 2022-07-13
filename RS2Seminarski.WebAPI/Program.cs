@@ -23,6 +23,7 @@ builder.Services.AddTransient<IExerciseService, ExerciseService>();
 builder.Services.AddTransient<IRoutineService, RoutineService>();
 builder.Services.AddTransient<ILevelService, LevelService>();
 builder.Services.AddTransient<IService<RS2Seminarski.Model.Role, BaseSearchObject>, BaseService<RS2Seminarski.Model.Role,Role, BaseSearchObject >> ();
+builder.Services.AddTransient<IService<RS2Seminarski.Model.Muscle, BaseSearchObject>, BaseService<RS2Seminarski.Model.Muscle, Muscle, BaseSearchObject >> ();
 
 builder.Services.AddDbContext<DataContext>(options =>
 {

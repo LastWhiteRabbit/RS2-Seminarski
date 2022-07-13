@@ -163,6 +163,7 @@
             this.btnExercises.Size = new System.Drawing.Size(139, 44);
             this.btnExercises.TabIndex = 3;
             this.btnExercises.UseVisualStyleBackColor = true;
+            this.btnExercises.Click += new System.EventHandler(this.btnExercises_Click);
             // 
             // btnRoutines
             // 
@@ -173,6 +174,7 @@
             this.btnRoutines.Size = new System.Drawing.Size(139, 44);
             this.btnRoutines.TabIndex = 4;
             this.btnRoutines.UseVisualStyleBackColor = true;
+            this.btnRoutines.Click += new System.EventHandler(this.btnRoutines_Click);
             // 
             // btnSettings
             // 
@@ -183,6 +185,7 @@
             this.btnSettings.Size = new System.Drawing.Size(139, 44);
             this.btnSettings.TabIndex = 5;
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnStats
             // 
@@ -193,6 +196,7 @@
             this.btnStats.Size = new System.Drawing.Size(139, 44);
             this.btnStats.TabIndex = 6;
             this.btnStats.UseVisualStyleBackColor = true;
+            this.btnStats.Click += new System.EventHandler(this.btnStats_Click);
             // 
             // btnAddUser
             // 

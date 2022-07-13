@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddEditUser));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.clbRoles = new System.Windows.Forms.CheckedListBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -56,11 +55,6 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.btnDeleteRoutine = new System.Windows.Forms.Button();
-            this.btnStats = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
-            this.btnRoutines = new System.Windows.Forms.Button();
-            this.btnExercises = new System.Windows.Forms.Button();
-            this.btnUsers = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
@@ -312,56 +306,6 @@
             this.btnDeleteRoutine.TabIndex = 75;
             this.btnDeleteRoutine.UseVisualStyleBackColor = true;
             // 
-            // btnStats
-            // 
-            this.btnStats.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.stats_icon_icons_com_65379;
-            this.btnStats.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnStats.Location = new System.Drawing.Point(18, 251);
-            this.btnStats.Name = "btnStats";
-            this.btnStats.Size = new System.Drawing.Size(139, 44);
-            this.btnStats.TabIndex = 74;
-            this.btnStats.UseVisualStyleBackColor = true;
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources._3592841_cog_gear_general_machine_office_setting_settings_107765;
-            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSettings.Location = new System.Drawing.Point(18, 209);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(139, 44);
-            this.btnSettings.TabIndex = 73;
-            this.btnSettings.UseVisualStyleBackColor = true;
-            // 
-            // btnRoutines
-            // 
-            this.btnRoutines.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.clipboard_120835;
-            this.btnRoutines.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRoutines.Location = new System.Drawing.Point(18, 167);
-            this.btnRoutines.Name = "btnRoutines";
-            this.btnRoutines.Size = new System.Drawing.Size(139, 44);
-            this.btnRoutines.TabIndex = 72;
-            this.btnRoutines.UseVisualStyleBackColor = true;
-            // 
-            // btnExercises
-            // 
-            this.btnExercises.BackgroundImage = global::RS2Seminarski.WinUI.Properties.Resources.weight5_42665;
-            this.btnExercises.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExercises.Location = new System.Drawing.Point(18, 125);
-            this.btnExercises.Name = "btnExercises";
-            this.btnExercises.Size = new System.Drawing.Size(139, 44);
-            this.btnExercises.TabIndex = 71;
-            this.btnExercises.UseVisualStyleBackColor = true;
-            // 
-            // btnUsers
-            // 
-            this.btnUsers.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUsers.BackgroundImage")));
-            this.btnUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnUsers.Location = new System.Drawing.Point(18, 83);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(139, 44);
-            this.btnUsers.TabIndex = 70;
-            this.btnUsers.UseVisualStyleBackColor = true;
-            // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
@@ -378,11 +322,6 @@
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.pbUser);
             this.Controls.Add(this.btnDeleteRoutine);
-            this.Controls.Add(this.btnStats);
-            this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.btnRoutines);
-            this.Controls.Add(this.btnExercises);
-            this.Controls.Add(this.btnUsers);
             this.Name = "frmAddEditUser";
             this.Text = "frmAddEditUser";
             this.Load += new System.EventHandler(this.frmAddEditUser_Load);
@@ -405,11 +344,6 @@
         private Label lblUsername;
         private PictureBox pbUser;
         private Button btnDeleteRoutine;
-        private Button btnStats;
-        private Button btnSettings;
-        private Button btnRoutines;
-        private Button btnExercises;
-        private Button btnUsers;
         private Label label8;
         private Button btnBrowseImage;
         private Button btnSaveChanges;
