@@ -48,7 +48,7 @@ namespace RS2Seminarski.WinUI
                         ExerciseName = txtName.Text,
                         About = txtAbout.Text,
                         Instruction = txtInstruction.Text,
-                        LevelId = cmbLevel.SelectedIndex + 1,
+                        LevelId = cmbLevel.SelectedIndex,
                         ExerciseTypeIdList = typeIdList,
                         MuscleIdList = muscleIdList
                         

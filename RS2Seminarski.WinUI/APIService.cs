@@ -1,5 +1,6 @@
 ﻿using Flurl.Http;
 using RS2Seminarski.Model;
+using RS2Seminarski.WinUI.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace RS2Seminarski.WinUI
     public class APIService
     {
         private string _resource = null;
-        public string _endpoint = "https://localhost:7113/api/";
+        public string _endpoint = Settings.Default.ApiURL;
 
         public static string Username = null;
         public static string Password = null;
