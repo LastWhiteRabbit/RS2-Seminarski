@@ -74,5 +74,13 @@ namespace RS2Seminarski.WinUI
             new frmAddEditExercise().Show();
 
         }
+
+        private void dgvExerciseList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var item = dgvExerciseList.SelectedRows[0].DataBoundItem as Exercise;
+
+            frmAddEditExercise frmAddEditExercise = new frmAddEditExercise(item);
+            frmAddEditExercise.ShowDialog();
+        }
     }
 }

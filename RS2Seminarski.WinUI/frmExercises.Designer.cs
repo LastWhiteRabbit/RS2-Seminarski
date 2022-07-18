@@ -222,6 +222,7 @@
             this.dgvExerciseList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvExerciseList.Size = new System.Drawing.Size(483, 253);
             this.dgvExerciseList.TabIndex = 16;
+            this.dgvExerciseList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExerciseList_CellDoubleClick);
             // 
             // ExerciseName
             // 
