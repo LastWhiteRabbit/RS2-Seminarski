@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using Microsoft.ML.Trainers;
@@ -13,9 +14,10 @@ namespace RS2Seminarski.WebAPI.Services
     public class ExerciseService :
         BaseCRUDService<Model.Exercise, Database.Exercise, ExerciseSearchObject, ExerciseInsertRequest, ExerciseUpdateRequest>, IExerciseService
     {
-        public ExerciseService(DataContext context, IMapper mapper) : base(context, mapper)
+        private readonly IMemoryCache _memoryCache;
+        public ExerciseService(DataContext context, IMapper mapper, IMemoryCache memoryCache) : base(context, mapper)
         {
-
+            _memoryCache = memoryCache;
         }
         public override async Task<Model.Exercise> InsertAsync(ExerciseInsertRequest insert)
         {
@@ -71,7 +73,25 @@ namespace RS2Seminarski.WebAPI.Services
 
         public async Task<List<Model.Exercise>> Recommend(int id)
         {
-            trainData();
+
+            /*
+                 * 
+            Code should always have a fallback option to fetch data and not depend on a cached value
+            being available.
+            The cache uses a scarce resource, memory. Limit cache growth:
+            Do not insert external input into the cache. As an example, using arbitrary user-provided
+            input as a cache key is not recommended since the input might consume an unpredictable
+            amount of memory.
+            Use expirations to limit cache growth.
+            Use SetSize, Size, and SizeLimit to limit cache size. The ASP.NET Core runtime does not limit
+            cache size based on memory pressure. It's up to the developer to limit cache size.
+            */
+
+            model = _memoryCache.Get<ITransformer>("exercises");
+
+            if (model == null) { 
+                trainData();
+            }
 
             var finalResult = predictExercises(id);
 
@@ -128,6 +148,10 @@ namespace RS2Seminarski.WebAPI.Services
                     var est = mlContext.Recommendation().Trainers.MatrixFactorization(options);
 
                     model = est.Fit(trainData);
+
+                    //put 'model' training in 'exercises' cache for 1 minute
+
+                    _memoryCache.Set("exercises", model, TimeSpan.FromMinutes(1));
                 }
             }
         }
