@@ -18,11 +18,9 @@ namespace RS2Seminarski.WebAPI.Controllers
         }
 
         [HttpGet("{id}/Recommend")]
-        public List<Exercise> Recommend(int id)
+        public async Task <List<Exercise>> Recommend(int id)
         {
-            var result = ExerciseService.Recommend(id);
-
-            return result;
+            return await ExerciseService.Recommend(id);
         }
 
     }

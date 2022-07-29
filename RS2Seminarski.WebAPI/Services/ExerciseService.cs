@@ -69,7 +69,16 @@ namespace RS2Seminarski.WebAPI.Services
         static MLContext mlContext = null;
         static ITransformer model = null;
 
-        public List<Model.Exercise> Recommend(int id)
+        public async Task<List<Model.Exercise>> Recommend(int id)
+        {
+            trainData();
+
+            var finalResult = predictExercises(id);
+
+            return _mapper.Map<List<Model.Exercise>>(finalResult);
+        }
+
+        private void trainData()
         {
             lock (isLocked)
             {
@@ -121,9 +130,10 @@ namespace RS2Seminarski.WebAPI.Services
                     model = est.Fit(trainData);
                 }
             }
-            
+        }
 
-
+        private List<Model.Exercise> predictExercises(int id)
+        {
             var allExercises = _context.Exercises.Where(x => x.ExerciseId != id);
 
             var predictionResult = new List<Tuple<Database.Exercise, float>>();
@@ -138,7 +148,7 @@ namespace RS2Seminarski.WebAPI.Services
                     CoDoExerciseID = (uint)exercise.ExerciseId
                 });
 
-                predictionResult.Add(new Tuple<Database.Exercise, float>(exercise,prediction.Score));
+                predictionResult.Add(new Tuple<Database.Exercise, float>(exercise, prediction.Score));
             }
 
             var finalResult = predictionResult.OrderByDescending(x => x.Item2)

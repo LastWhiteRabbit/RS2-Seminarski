@@ -5,6 +5,6 @@ namespace RS2Seminarski.WebAPI.Interfaces
 {
     public interface IExerciseService : ICRUDService<Model.Exercise, ExerciseSearchObject, ExerciseInsertRequest, ExerciseUpdateRequest>
     {
-        List<Model.Exercise> Recommend(int id);
+        Task<List<Model.Exercise>> Recommend(int id);
     }
 }
