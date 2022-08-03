@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ironvault_mobile/screens/exercises/exercise_list_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -54,7 +55,12 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Container(
-              child: Center(child: Text("Login")),
+              child: InkWell(
+                child: Center(child: Text("Login")),
+                onTap: () {
+                  Navigator.pushNamed(context, ExerciseListScreen.routeName);
+                },
+              ),
               height: 50,
               width: 300,
               margin: EdgeInsets.all(8),
