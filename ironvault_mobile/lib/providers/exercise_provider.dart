@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/io_client.dart';
+import 'package:ironvault_mobile/model/exercise.dart';
 
 class ExerciseProvider with ChangeNotifier {
   HttpClient client = new HttpClient();
@@ -12,7 +13,7 @@ class ExerciseProvider with ChangeNotifier {
     http = IOClient(client);
   }
 
-  Future<dynamic> get(dynamic searchObject) async {
+  Future<List<Exercise>> get(dynamic searchObject) async {
     var url = Uri.parse("https://10.0.2.2:7113/api/Exercise");
 
     String username = "admin";
@@ -30,7 +31,9 @@ class ExerciseProvider with ChangeNotifier {
 
     if (response.statusCode < 400) {
       var data = jsonDecode(response.body);
-      return data;
+      List<Exercise> list =
+          data.map((x) => Exercise.fromJson(x)).cast<Exercise>().toList();
+      return list;
     } else {
       throw Exception("User not allowed");
     }

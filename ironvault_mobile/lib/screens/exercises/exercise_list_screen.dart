@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:ironvault_mobile/model/exercise.dart';
 import 'package:ironvault_mobile/providers/exercise_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:ironvault_mobile/utils/util.dart';
 
 class ExerciseListScreen extends StatefulWidget {
   static const String routeName = "/exercises";
@@ -15,7 +17,7 @@ class ExerciseListScreen extends StatefulWidget {
 
 class _ExerciseListScreenState extends State<ExerciseListScreen> {
   ExerciseProvider? _exerciseProvider = null;
-  dynamic data = {};
+  List<Exercise> data = [];
 
   @override
   void initState() {
@@ -41,6 +43,7 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              _buildHeader(),
               Container(
                 height: 200,
                 child: GridView(
@@ -60,16 +63,33 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
     ));
   }
 
+  Widget _buildHeader() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Text(
+        "Exercises",
+        style: TextStyle(
+            color: Colors.grey, fontSize: 40, fontWeight: FontWeight.w600),
+      ),
+    );
+  }
+
   List<Widget> _buildExerciseCardList() {
     if (data.length == 0) {
       return [Text("Loading...")];
     }
     List<Widget> list = data
         .map((x) => Container(
-              height: 200,
-              width: 200,
-              child: Text(x["exerciseName"] ?? ""),
-            ))
+                child: Column(
+              children: [
+                Container(
+                  height: 100,
+                  width: 100,
+                  child: imageFromBase64String(x.exerciseImage!),
+                ),
+                Text(x.exerciseName! ?? "")
+              ],
+            )))
         .cast<Widget>()
         .toList();
 
