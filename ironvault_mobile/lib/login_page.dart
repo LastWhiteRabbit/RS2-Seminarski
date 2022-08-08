@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ironvault_mobile/providers/user_provider.dart';
 import 'package:ironvault_mobile/screens/exercises/exercise_list_screen.dart';
+import 'package:ironvault_mobile/utils/util.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -9,8 +12,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController _usernameController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  late UserProvider _userProvider;
+
   @override
   Widget build(BuildContext context) {
+    _userProvider = Provider.of<UserProvider>(context, listen: false);
+
     return Scaffold(
         appBar: AppBar(
           title: Text("IronVault"),
@@ -36,6 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: BoxDecoration(
                         border: Border(bottom: BorderSide(color: Colors.grey))),
                     child: TextField(
+                      controller: _usernameController,
                       decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: "Username",
@@ -45,6 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     padding: EdgeInsets.all(8),
                     child: TextField(
+                      controller: _passwordController,
                       decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: "Password",
@@ -57,8 +68,28 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               child: InkWell(
                 child: Center(child: Text("Login")),
-                onTap: () {
-                  Navigator.pushNamed(context, ExerciseListScreen.routeName);
+                onTap: () async {
+                  try {
+                    Authorization.username = _usernameController.text;
+                    Authorization.password = _passwordController.text;
+
+                    await _userProvider.get();
+
+                    Navigator.pushNamed(context, ExerciseListScreen.routeName);
+                  } catch (e) {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                              title: Text("Error"),
+                              content: Text(e.toString()),
+                              actions: [
+                                TextButton(
+                                  child: Text("OK"),
+                                  onPressed: () => Navigator.pop(context),
+                                )
+                              ],
+                            ));
+                  }
                 },
               ),
               height: 50,

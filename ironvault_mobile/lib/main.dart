@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ironvault_mobile/providers/exercise_provider.dart';
+import 'package:ironvault_mobile/providers/user_provider.dart';
 import 'package:ironvault_mobile/screens/exercises/exercise_list_screen.dart';
 import 'package:provider/provider.dart';
 import 'login_page.dart';
@@ -7,7 +8,7 @@ import 'login_page.dart';
 void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => ExerciseProvider()),
-    //ChangeNotifierProvider(create: (_) => UserProvider()),
+    ChangeNotifierProvider(create: (_) => UserProvider()),
   ], child: const MyApp()));
 }
 
