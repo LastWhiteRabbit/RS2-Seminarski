@@ -87,7 +87,7 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
                   width: 100,
                   child: imageFromBase64String(x.exerciseImage!),
                 ),
-                Text(x.exerciseName! ?? "")
+                Text(x.exerciseName!)
               ],
             )))
         .cast<Widget>()
