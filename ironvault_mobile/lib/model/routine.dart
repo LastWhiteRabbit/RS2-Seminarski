@@ -12,4 +12,9 @@ class Routine {
   String? exerciseNames;
 
   Routine() {}
+
+  factory Routine.fromJson(Map<String, dynamic> json) =>
+      _$RoutineFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RoutineToJson(this);
 }

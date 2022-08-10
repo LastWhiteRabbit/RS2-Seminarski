@@ -10,4 +10,8 @@ class Muscle {
   String? muscleName;
 
   Muscle() {}
+
+  factory Muscle.fromJson(Map<String, dynamic> json) => _$MuscleFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MuscleToJson(this);
 }

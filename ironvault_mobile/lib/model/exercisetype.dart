@@ -10,4 +10,9 @@ class ExerciseType {
   String? exerciseTypeName;
 
   ExerciseType() {}
+
+  factory ExerciseType.fromJson(Map<String, dynamic> json) =>
+      _$ExerciseTypeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ExerciseTypeToJson(this);
 }
