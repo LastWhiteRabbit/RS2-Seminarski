@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ironvault_mobile/common/theme_helper.dart';
 import 'package:ironvault_mobile/providers/user_provider.dart';
 import 'package:ironvault_mobile/screens/exercises/exercise_list_screen.dart';
 import 'package:ironvault_mobile/utils/util.dart';
@@ -27,12 +28,42 @@ class _LoginPageState extends State<LoginPage> {
         body: SingleChildScrollView(
           child: Column(children: [
             Container(
-              height: 400,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/placeholder.png"),
-                      fit: BoxFit.fill)),
-            ),
+                height: 400,
+                decoration: new BoxDecoration(
+                  gradient: new LinearGradient(
+                    begin: const FractionalOffset(0, 0),
+                    end: const FractionalOffset(1, 1),
+                    colors: [
+                      Color.fromARGB(255, 176, 205, 255),
+                      Colors.blueAccent,
+                    ],
+                  ),
+                ),
+                child: AnimatedOpacity(
+                  opacity: 1.0,
+                  duration: Duration(milliseconds: 1200),
+                  child: Center(
+                      child: Container(
+                          height: 140,
+                          width: 140,
+                          child: Center(
+                            child: ClipOval(
+                                child: Icon(
+                              Icons.android_rounded,
+                              size: 130,
+                            )),
+                          ),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(100),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    blurRadius: 2.0,
+                                    offset: Offset(5.0, 3.0),
+                                    spreadRadius: 2.0)
+                              ]))),
+                )),
             Padding(
               padding: EdgeInsets.all(8),
               child: Container(
@@ -46,20 +77,17 @@ class _LoginPageState extends State<LoginPage> {
                         border: Border(bottom: BorderSide(color: Colors.grey))),
                     child: TextField(
                       controller: _usernameController,
-                      decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Username",
-                          hintStyle: TextStyle(color: Colors.grey[400])),
+                      decoration: ThemeHelper().textInputDecoration(
+                          "Username", "Enter your username"),
                     ),
                   ),
                   Container(
                     padding: EdgeInsets.all(8),
                     child: TextField(
                       controller: _passwordController,
-                      decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Password",
-                          hintStyle: TextStyle(color: Colors.grey[400])),
+                      obscureText: true,
+                      decoration: ThemeHelper().textInputDecoration(
+                          "Password", "Enter your password"),
                     ),
                   ),
                 ]),
@@ -67,7 +95,14 @@ class _LoginPageState extends State<LoginPage> {
             ),
             Container(
               child: InkWell(
-                child: Center(child: Text("Login")),
+                child: Center(
+                    child: Text(
+                  "Login".toUpperCase(),
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                )),
                 onTap: () async {
                   try {
                     Authorization.username = _usernameController.text;
@@ -95,12 +130,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 50,
               width: 300,
               margin: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  gradient: LinearGradient(colors: [
-                    Color.fromARGB(255, 214, 174, 174),
-                    Color.fromARGB(255, 158, 137, 194)
-                  ])),
+              decoration: ThemeHelper().buttonBoxDecoration(context),
             ),
             SizedBox(
               height: 40,
