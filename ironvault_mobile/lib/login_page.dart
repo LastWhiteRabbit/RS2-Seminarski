@@ -1,7 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ironvault_mobile/common/theme_helper.dart';
 import 'package:ironvault_mobile/providers/user_provider.dart';
 import 'package:ironvault_mobile/screens/exercises/exercise_list_screen.dart';
+import 'package:ironvault_mobile/screens/exercises/registration_page.dart';
 import 'package:ironvault_mobile/utils/util.dart';
 import 'package:provider/provider.dart';
 
@@ -94,6 +96,17 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Container(
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+              alignment: Alignment.topRight,
+              child: Text(
+                "Forgot password?",
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+            ),
+            Container(
               child: InkWell(
                 child: Center(
                     child: Text(
@@ -132,10 +145,30 @@ class _LoginPageState extends State<LoginPage> {
               margin: EdgeInsets.all(8),
               decoration: ThemeHelper().buttonBoxDecoration(context),
             ),
-            SizedBox(
-              height: 40,
-            ),
-            Text("Forgot password?")
+            Container(
+                margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                alignment: Alignment.center,
+                child: Text.rich(TextSpan(children: [
+                  TextSpan(
+                      text: "Don't have an account? ",
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black)),
+                  TextSpan(
+                      text: "Create one",
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RegistrationPage()));
+                        },
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blueAccent))
+                ])))
           ]),
         ));
   }
