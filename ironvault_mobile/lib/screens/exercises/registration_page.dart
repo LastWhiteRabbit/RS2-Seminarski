@@ -2,9 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:ironvault_mobile/common/theme_helper.dart';
+import 'package:ironvault_mobile/model/user_insert_request.dart';
+import 'package:ironvault_mobile/providers/user_provider.dart';
 import 'package:ironvault_mobile/screens/exercises/exercise_list_screen.dart';
+import 'package:ironvault_mobile/utils/util.dart';
+import 'package:provider/provider.dart';
 
 class RegistrationPage extends StatefulWidget {
+  static const String routeName = "/registration";
+  const RegistrationPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _RegistrationPageState();
@@ -12,12 +19,26 @@ class RegistrationPage extends StatefulWidget {
 }
 
 class _RegistrationPageState extends State<RegistrationPage> {
+  late UserProvider _userProvider;
+
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _passwordConfirmationController =
+      TextEditingController();
+
+  UserInsertRequest request = UserInsertRequest();
+
   final _formKey = GlobalKey<FormState>();
   bool checkedValue = false;
   bool checkboxValue = false;
 
   @override
   Widget build(BuildContext context) {
+    _userProvider = Provider.of<UserProvider>(context, listen: false);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -76,6 +97,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         ),
                         Container(
                           child: TextFormField(
+                            controller: _firstNameController,
                             decoration: ThemeHelper().textInputDecoration(
                                 'First Name', 'Enter your first name'),
                           ),
@@ -86,6 +108,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         ),
                         Container(
                           child: TextFormField(
+                            controller: _lastNameController,
                             decoration: ThemeHelper().textInputDecoration(
                                 'Last Name', 'Enter your last name'),
                           ),
@@ -94,6 +117,16 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         SizedBox(height: 20.0),
                         Container(
                           child: TextFormField(
+                            controller: _usernameController,
+                            decoration: ThemeHelper().textInputDecoration(
+                                'Username', 'Enter your username'),
+                          ),
+                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
+                        ),
+                        SizedBox(height: 20.0),
+                        Container(
+                          child: TextFormField(
+                            controller: _emailController,
                             decoration: ThemeHelper().textInputDecoration(
                                 "E-mail address", "Enter your email"),
                             keyboardType: TextInputType.emailAddress,
@@ -111,6 +144,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         SizedBox(height: 20.0),
                         Container(
                           child: TextFormField(
+                            controller: _phoneNumberController,
                             decoration: ThemeHelper().textInputDecoration(
                                 "Mobile Number", "Enter your mobile number"),
                             keyboardType: TextInputType.phone,
@@ -127,12 +161,32 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         SizedBox(height: 20.0),
                         Container(
                           child: TextFormField(
+                            controller: _passwordController,
                             obscureText: true,
                             decoration: ThemeHelper().textInputDecoration(
                                 "Password*", "Enter your password"),
                             validator: (val) {
                               if (val!.isEmpty) {
                                 return "Please enter your password";
+                              }
+                              return null;
+                            },
+                          ),
+                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
+                        ),
+                        SizedBox(height: 15.0),
+                        Container(
+                          child: TextFormField(
+                            controller: _passwordConfirmationController,
+                            obscureText: true,
+                            decoration: ThemeHelper().textInputDecoration(
+                                "Confirm your password", "Enter your password"),
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return "Please enter your password";
+                              }
+                              if (val != _passwordController.text) {
+                                return "Password and password confirmation must be the same!";
                               }
                               return null;
                             },
@@ -200,8 +254,29 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 ),
                               ),
                             ),
-                            onPressed: () {
+                            onPressed: () async {
                               if (_formKey.currentState!.validate()) {
+                                request.name = _firstNameController.text;
+                                request.surname = _lastNameController.text;
+                                request.email = _emailController.text;
+                                request.mobile = _phoneNumberController.text;
+                                request.userName = _usernameController.text;
+                                request.password = _passwordController.text;
+                                request.passwordConfirmation =
+                                    _passwordConfirmationController.text;
+                                request.roleIdList = ["1"];
+
+                                await _userProvider.register(request);
+                                await showDialog(
+                                    context: context,
+                                    builder: (BuildContext dialogContex) =>
+                                        AlertDialog(
+                                          title: Text("Success"),
+                                        ));
+                                Authorization.username =
+                                    _usernameController.text;
+                                Authorization.password =
+                                    _passwordController.text;
                                 Navigator.of(context).pushAndRemoveUntil(
                                     MaterialPageRoute(
                                         builder: (context) =>

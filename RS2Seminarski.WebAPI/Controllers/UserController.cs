@@ -24,5 +24,11 @@ namespace RS2Seminarski.WebAPI.Controllers
         {
             return base.Update(id, update);
         }
+
+        [AllowAnonymous]
+        public override Task<User> Insert([FromBody] UserInsertRequest insert)
+        {
+            return base.Insert(insert);
+        }
     }
 }

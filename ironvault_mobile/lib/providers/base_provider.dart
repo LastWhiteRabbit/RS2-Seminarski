@@ -9,6 +9,7 @@ import 'package:ironvault_mobile/utils/util.dart';
 abstract class BaseProvider<T> with ChangeNotifier {
   static String? _baseUrl;
   static String? _endpoint;
+  String? baseUrl;
 
   HttpClient client = new HttpClient();
   IOClient? http;
@@ -25,6 +26,8 @@ abstract class BaseProvider<T> with ChangeNotifier {
     _endpoint = endpoint;
     client.badCertificateCallback = (cert, host, port) => true;
     http = IOClient(client);
+
+    baseUrl = "$_baseUrl$_endpoint";
   }
 
   Future<List<T>> getById(int id, [dynamic additionalData]) async {
