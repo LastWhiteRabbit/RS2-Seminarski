@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ironvault_mobile/providers/exercise_provider.dart';
+import 'package:ironvault_mobile/providers/exercisetype_provider.dart';
+import 'package:ironvault_mobile/providers/muscle_provider.dart';
+import 'package:ironvault_mobile/providers/routine_provider.dart';
 import 'package:ironvault_mobile/providers/user_provider.dart';
 import 'package:ironvault_mobile/screens/exercises/exercise_list_screen.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +12,9 @@ void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => ExerciseProvider()),
     ChangeNotifierProvider(create: (_) => UserProvider()),
+    ChangeNotifierProvider(create: (_) => ExerciseTypeProvider()),
+    ChangeNotifierProvider(create: (_) => MuscleProvider()),
+    ChangeNotifierProvider(create: (_) => RoutineProvider()),
   ], child: const MyApp()));
 }
 
