@@ -7,6 +7,7 @@ import 'package:ironvault_mobile/model/exercise.dart';
 import 'package:ironvault_mobile/model/muscle.dart';
 import 'package:ironvault_mobile/providers/exercise_provider.dart';
 import 'package:ironvault_mobile/providers/muscle_provider.dart';
+import 'package:ironvault_mobile/providers/routine_provider.dart';
 import 'package:ironvault_mobile/widgets/ironvault_drawer.dart';
 import 'package:ironvault_mobile/widgets/iv_drawer.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,7 @@ class ExerciseListScreen extends StatefulWidget {
 
 class _ExerciseListScreenState extends State<ExerciseListScreen> {
   ExerciseProvider? _exerciseProvider = null;
+  RoutineProvider? _routineProvider = null;
   List<Exercise> data = [];
 
   double _drawerIconSize = 24;
@@ -31,6 +33,7 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
   void initState() {
     super.initState();
     _exerciseProvider = context.read<ExerciseProvider>();
+    _routineProvider = context.read<RoutineProvider>();
     loadData();
   }
 
@@ -102,7 +105,10 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
                 ),
                 Text(x.exerciseName!),
                 Text(x.muscleNames!),
-                Text(x.typeNames!)
+                Text(x.typeNames!),
+                IconButton(
+                    onPressed: (() => _routineProvider?.insert(x)),
+                    icon: Icon(Icons.add))
               ],
             )))
         .cast<Widget>()
