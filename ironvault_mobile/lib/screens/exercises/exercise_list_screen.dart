@@ -8,10 +8,14 @@ import 'package:ironvault_mobile/model/muscle.dart';
 import 'package:ironvault_mobile/providers/exercise_provider.dart';
 import 'package:ironvault_mobile/providers/muscle_provider.dart';
 import 'package:ironvault_mobile/providers/routine_provider.dart';
+import 'package:ironvault_mobile/providers/routineclient_provider.dart';
 import 'package:ironvault_mobile/widgets/ironvault_drawer.dart';
 import 'package:ironvault_mobile/widgets/iv_drawer.dart';
+import 'package:ironvault_mobile/widgets/master_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:ironvault_mobile/utils/util.dart';
+
+import 'exercise_details_screen.dart';
 
 class ExerciseListScreen extends StatefulWidget {
   static const String routeName = "/exercises";
@@ -24,7 +28,7 @@ class ExerciseListScreen extends StatefulWidget {
 
 class _ExerciseListScreenState extends State<ExerciseListScreen> {
   ExerciseProvider? _exerciseProvider = null;
-  RoutineProvider? _routineProvider = null;
+  RoutineClientProvider? _routineClientProvider = null;
   List<Exercise> data = [];
 
   double _drawerIconSize = 24;
@@ -33,7 +37,7 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
   void initState() {
     super.initState();
     _exerciseProvider = context.read<ExerciseProvider>();
-    _routineProvider = context.read<RoutineProvider>();
+    _routineClientProvider = context.read<RoutineClientProvider>();
     loadData();
   }
 
@@ -47,36 +51,33 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(),
-        drawer: ivDrawer(),
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildHeader(),
-                  Container(
-                    height: 500,
-                    child: GridView(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 1,
-                          childAspectRatio: 4 / 3,
-                          crossAxisSpacing: 1.0,
-                          mainAxisSpacing: 1.0),
-                      scrollDirection: Axis.vertical,
-                      children: _buildExerciseCardList(),
-                    ),
-                  ),
-                  Container(
-                    child: Text("Hello World"),
-                  )
-                ],
+    return MasterScreenWidget(
+      child: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildHeader(),
+              Container(
+                height: 500,
+                child: GridView(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 1,
+                      childAspectRatio: 4 / 3,
+                      crossAxisSpacing: 1.0,
+                      mainAxisSpacing: 1.0),
+                  scrollDirection: Axis.vertical,
+                  children: _buildExerciseCardList(),
+                ),
               ),
-            ),
+              Container(
+                child: Text("Hello World"),
+              )
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   Widget _buildHeader() {
@@ -98,16 +99,22 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
         .map((x) => Container(
                 child: Column(
               children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  child: imageFromBase64String(x.exerciseImage!),
+                InkWell(
+                  onTap: () => {
+                    Navigator.pushNamed(context,
+                        "${ExerciseDetailsScreen.routeName}/${x.exerciseId}")
+                  },
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    child: imageFromBase64String(x.exerciseImage!),
+                  ),
                 ),
                 Text(x.exerciseName!),
                 Text(x.muscleNames!),
                 Text(x.typeNames!),
                 IconButton(
-                    onPressed: (() => _routineProvider?.insert(x)),
+                    onPressed: (() => _routineClientProvider?.addToRoutine(x)),
                     icon: Icon(Icons.add))
               ],
             )))

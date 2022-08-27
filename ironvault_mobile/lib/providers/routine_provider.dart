@@ -5,6 +5,7 @@ class RoutineProvider extends BaseProvider<Routine> {
   RoutineProvider() : super("Routine");
   @override
   Routine fromJson(data) {
-    return Routine.fromJson(data);
+    // TODO: implement fromJson
+    return Routine();
   }
 }

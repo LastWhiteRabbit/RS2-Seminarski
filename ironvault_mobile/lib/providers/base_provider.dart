@@ -8,7 +8,7 @@ import 'package:ironvault_mobile/utils/util.dart';
 
 abstract class BaseProvider<T> with ChangeNotifier {
   static String? _baseUrl;
-  static String? _endpoint;
+  String? _endpoint;
   String? baseUrl;
 
   HttpClient client = new HttpClient();
@@ -91,8 +91,9 @@ abstract class BaseProvider<T> with ChangeNotifier {
 
     Map<String, String> headers = createHeaders();
 
-    var response =
-        await http!.put(uri, headers: headers, body: jsonEncode(request));
+    var jsonRequest = jsonEncode(request);
+
+    var response = await http!.put(uri, headers: headers, body: jsonRequest);
 
     if (isValidResponseCode(response)) {
       var data = jsonDecode(response.body);
