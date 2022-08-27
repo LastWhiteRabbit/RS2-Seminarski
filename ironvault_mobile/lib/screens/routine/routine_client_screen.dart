@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ironvault_mobile/model/routine.dart';
 import 'package:ironvault_mobile/model/routine_client.dart';
 import 'package:ironvault_mobile/providers/routine_provider.dart';
 import 'package:ironvault_mobile/providers/routineclient_provider.dart';
@@ -69,18 +70,21 @@ class _RoutineClientScreenState extends State<RoutineClientScreen> {
     return TextButton(
       child: Text("Add"),
       onPressed: () async {
-        List<Map> items = [];
+        List<int> items = [];
         _routineClientProvider.routineClient.items.forEach((item) {
-          items.add({
-            "exerciseId": item.exercise.exerciseId,
-            "count": item.count,
-          });
+          items.add(item.exercise.exerciseId?.toInt() ?? 0);
         });
         Map order = {
-          "items": items,
+          "routineName": "test",
+          "description": "test",
+          "exerciseIdList": items
         };
+        Routine routine = new Routine();
+        routine.routineName = "test";
+        routine.description = "test";
+        routine.exerciseIdList = items;
 
-        await _routineProvider.insert(order);
+        await _routineProvider.insert(routine);
 
         _routineClientProvider.routineClient.items.clear();
         setState(() {});
