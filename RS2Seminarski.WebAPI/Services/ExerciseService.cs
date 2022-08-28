@@ -151,7 +151,9 @@ namespace RS2Seminarski.WebAPI.Services
 
                     //put 'model' training in 'exercises' cache for 1 minute
 
-                    _memoryCache.Set("exercises", model, TimeSpan.FromMinutes(1));
+                    //possibly a bug because model isn't nulled 
+
+                    _memoryCache.Set("exercises", model, TimeSpan.FromMinutes(50));
                 }
             }
         }
