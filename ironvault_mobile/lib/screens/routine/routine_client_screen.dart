@@ -82,7 +82,6 @@ class _RoutineClientScreenState extends State<RoutineClientScreen> {
         Routine routine = new Routine();
         routine.routineName = "test";
         routine.description = "test";
-        routine.exerciseIdList = items;
 
         await _routineProvider.insert(routine);
 

@@ -10,7 +10,7 @@ class Routine {
   String? routineName;
   String? description;
   String? exerciseNames;
-  List<int> exerciseIdList = [];
+  //List<int> exerciseIdList = [];
 
   Routine() {}
 

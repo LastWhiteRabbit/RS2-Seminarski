@@ -1,100 +1,138 @@
-// import 'package:eprodajamobile/model/cart.dart';
-// import 'package:eprodajamobile/providers/cart_provider.dart';
-// import 'package:eprodajamobile/widgets/eprodaja_drawer.dart';
-// import 'package:eprodajamobile/widgets/master_screen.dart';
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter/src/foundation/key.dart';
-// import 'package:flutter/src/widgets/framework.dart';
-// import 'package:ironvault_mobile/providers/routine_provider.dart';
-// import 'package:provider/provider.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:ironvault_mobile/model/routine.dart';
+import 'package:ironvault_mobile/providers/routine_provider.dart';
+import 'package:ironvault_mobile/screens/routine/routine_details_screen.dart';
+import 'package:ironvault_mobile/widgets/master_screen.dart';
+import 'package:provider/provider.dart';
 
-// import '../../providers/order_provider.dart';
-// import '../../utils/util.dart';
+import '../../utils/util.dart';
 
-// class RoutineScreen extends StatefulWidget {
-//   static const String routeName = "/Routine";
+class RoutineScreen extends StatefulWidget {
+  static const String routeName = "/Routine";
 
-//   const RoutineScreen({Key? key}) : super(key: key);
+  const RoutineScreen({Key? key}) : super(key: key);
 
-//   @override State<RoutineScreen> createState() => _RoutineScreenState();
-// }
-// class _RoutineScreenState extends State<RoutineScreen> {
+  @override
+  State<RoutineScreen> createState() => _RoutineScreenState();
+}
 
-//   late RoutineProvider _routineProvider;
-//   late OrderProvider _orderProvider;
+class _RoutineScreenState extends State<RoutineScreen> {
+  RoutineProvider? _routineProvider = null;
+  List<Routine> data = [];
 
-//   @override
-//   void initState() {
-//     // TODO: implement initState
-//     super.initState();
+  double _drawerIconSize = 24;
+  double _drawerFontSize = 17;
+  @override
+  void initState() {
+    super.initState();
+    _routineProvider = context.read<RoutineProvider>();
+    loadData();
+  }
 
-//   }
+  Future loadData() async {
+    var tmpData = await _routineProvider?.get(null);
 
-//   @override
-//   void didChangeDependencies() {
-//     // TODO: implement didChangeDependencies
-//     super.didChangeDependencies();
-//     _routineProvider = context.watch<RoutineProvider>();
-//     _orderProvider = context.read<OrderProvider>();
-//   }
+    setState(() {
+      data = tmpData!;
+    });
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//     return MasterScreenWidget(
-//         child: Column(
-//           children: [
-//             Expanded(child:_buildProductCardList()),
-//             _buildBuyButton(),
-//           ],
-//         ),
-//       );
-//   }
+  @override
+  Widget build(BuildContext context) {
+    return MasterScreenWidget(
+      child: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildHeader(),
+              Container(
+                height: 500,
+                child: GridView(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 1,
+                      childAspectRatio: 4 / 3,
+                      crossAxisSpacing: 1.0,
+                      mainAxisSpacing: 1.0),
+                  scrollDirection: Axis.vertical,
+                  children: _buildRoutineList(),
+                ),
+              ),
+              Container(
+                height: 500,
+                child: GridView(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 1,
+                      childAspectRatio: 4 / 3,
+                      crossAxisSpacing: 1.0,
+                      mainAxisSpacing: 1.0),
+                  scrollDirection: Axis.vertical,
+                  children: _buildRoutineCardList(),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 
-//   Widget _buildExerciseCardList() {
-//     return Container(
-//       child: ListView.builder(
-//         //itemCount: _routineProvider.cart.items.length,
-//         itemCount: 1,
-//         itemBuilder: (context, index) {
-//           return _buildExerciseCard(_routineProvider.routine.items[index]);
-//         },
-//       ),
-//     );
-//   }
+  Widget _buildHeader() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Text(
+        "Routines",
+        style: TextStyle(
+            color: Colors.grey, fontSize: 40, fontWeight: FontWeight.w600),
+      ),
+    );
+  }
 
-//   Widget _buildExerciseCard(CartItem item) {
-//     return ListTile(
-//       leading: imageFromBase64String(item.product.slika!),
-//       title: Text(item.product.naziv ?? ""),
-//       subtitle: Text(item.product.cijena.toString()),
-//       trailing: Text(item.count.toString()),
-//     );
-//   }
+  List<Widget> _buildRoutineList() {
+    if (data.length == 0) {
+      return [Text("Loading...")];
+    }
+    List<Widget> list = data
+        .map((x) => Column(
+              children: [
+                Container(
+                  child: Container(
+                    height: 10,
+                    width: 100,
+                    child: Text(x.routineName!),
+                  ),
+                ),
+              ],
+            ))
+        .cast<Widget>()
+        .toList();
 
-//   Widget _buildBuyButton() {
-//     return TextButton(
-//       child: Text("Buy"),
-//       onPressed: () async {
-//         List<Map> items = [];
-//         _cartProvider.cart.items.forEach((item) {
-//           items.add({
-//             "proizvodId": item.product.proizvodId,
-//             "kolicina": item.count,
-//           });
-//         });
-//         Map order = {
-//           "items": items,
-//         };
+    return list;
+  }
 
-//         await _orderProvider.insert(order);
+  List<Widget> _buildRoutineCardList() {
+    if (data.length == 0) {
+      return [Text("Loading...")];
+    }
+    List<Widget> list = data
+        .map((x) => Container(
+                child: Column(
+              children: [
+                Container(
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    child: Text(x.routineName!),
+                  ),
+                ),
+              ],
+            )))
+        .cast<Widget>()
+        .toList();
 
-//         _cartProvider.cart.items.clear();
-//         setState(() {
-//         });
-//       },
-//     );
-//   }
-// } 
-// }
+    return list;
+  }
+}

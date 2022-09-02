@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:ironvault_mobile/login_page.dart';
 import 'package:ironvault_mobile/providers/routine_provider.dart';
 import 'package:ironvault_mobile/screens/exercises/exercise_list_screen.dart';
+import 'package:ironvault_mobile/screens/routine/routine_screen.dart';
 import 'package:provider/provider.dart';
 
 class ivDrawer extends StatelessWidget {
@@ -69,7 +70,7 @@ class ivDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
+                  MaterialPageRoute(builder: (context) => RoutineScreen()),
                 );
               },
             ),
