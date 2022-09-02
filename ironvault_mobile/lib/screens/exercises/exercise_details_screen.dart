@@ -143,14 +143,6 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                   ),
                 ],
               ),
-              Container(
-                child: Text(
-                  "test",
-                  style: TextStyle(
-                    fontSize: 17,
-                  ),
-                ),
-              ),
             ],
           ),
         ),

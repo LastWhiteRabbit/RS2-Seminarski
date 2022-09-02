@@ -8,6 +8,7 @@ import 'package:ironvault_mobile/providers/user_provider.dart';
 import 'package:ironvault_mobile/screens/exercises/exercise_details_screen.dart';
 import 'package:ironvault_mobile/screens/exercises/exercise_list_screen.dart';
 import 'package:ironvault_mobile/screens/routine/routine_client_screen.dart';
+import 'package:ironvault_mobile/screens/routine/routine_details_screen.dart';
 import 'package:provider/provider.dart';
 import 'login_page.dart';
 
@@ -64,6 +65,11 @@ class MyApp extends StatelessWidget {
             var id = uri.pathSegments[1];
             return MaterialPageRoute(
                 builder: (context) => ExerciseDetailsScreen(id));
+          } else if (uri.pathSegments.length == 2 &&
+              "/${uri.pathSegments.first}" == RoutineDetailsScreen.routeName) {
+            var id = uri.pathSegments[1];
+            return MaterialPageRoute(
+                builder: (context) => RoutineDetailsScreen(id));
           }
         });
   }

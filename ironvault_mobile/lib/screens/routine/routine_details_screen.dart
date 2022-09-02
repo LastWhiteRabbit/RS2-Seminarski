@@ -57,7 +57,23 @@ class _RoutineDetailsScreenState extends State<RoutineDetailsScreen> {
                   border: OutlineInputBorder(),
                 ),
               ),
-            )
+            ),
+            SizedBox(height: 30.0),
+            Container(
+              child: TextFormField(
+                readOnly: true,
+                maxLines: 8,
+                initialValue: data?.description,
+                decoration: InputDecoration(
+                  labelText: 'Description',
+                  border: OutlineInputBorder(),
+                ),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           ],
         ),
       )),

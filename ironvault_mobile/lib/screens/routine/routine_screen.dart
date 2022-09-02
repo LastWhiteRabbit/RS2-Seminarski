@@ -61,7 +61,7 @@ class _RoutineScreenState extends State<RoutineScreen> {
                   children: _buildRoutineList(),
                 ),
               ),
-              Container(
+/*               Container(
                 height: 500,
                 child: GridView(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -72,7 +72,7 @@ class _RoutineScreenState extends State<RoutineScreen> {
                   scrollDirection: Axis.vertical,
                   children: _buildRoutineCardList(),
                 ),
-              ),
+              ), */
             ],
           ),
         ),
@@ -98,13 +98,17 @@ class _RoutineScreenState extends State<RoutineScreen> {
     List<Widget> list = data
         .map((x) => Column(
               children: [
-                Container(
-                  child: Container(
-                    height: 10,
-                    width: 100,
-                    child: Text(x.routineName!),
-                  ),
+                ListTile(
+                  title: Text(x.routineName!, style: TextStyle(fontSize: 30)),
+                  subtitle: Text(x.description!),
+                  trailing: Text("See full routine",
+                      style: TextStyle(fontSize: 15, color: Colors.blue)),
+                  onTap: () {
+                    Navigator.pushNamed(context,
+                        "${RoutineDetailsScreen.routeName}/${x.routineId}");
+                  },
                 ),
+                Divider()
               ],
             ))
         .cast<Widget>()

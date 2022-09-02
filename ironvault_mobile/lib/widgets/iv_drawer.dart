@@ -74,6 +74,22 @@ class ivDrawer extends StatelessWidget {
                 );
               },
             ),
+            ListTile(
+              leading: Icon(Icons.login_rounded,
+                  size: _drawerIconSize, color: Theme.of(context).accentColor),
+              title: Text(
+                'Exercises',
+                style: TextStyle(
+                    fontSize: _drawerFontSize,
+                    color: Theme.of(context).accentColor),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ExerciseListScreen()),
+                );
+              },
+            ),
             Divider(
               color: Theme.of(context).primaryColor,
               height: 1,
