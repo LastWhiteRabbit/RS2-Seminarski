@@ -43,12 +43,10 @@
             this.btnExercises = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbTopStats = new System.Windows.Forms.ComboBox();
-            this.cmbLevelStats = new System.Windows.Forms.ComboBox();
-            this.cmbTypeStats = new System.Windows.Forms.ComboBox();
+            this.formsPlot2 = new ScottPlot.FormsPlot();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.cmbSearchBy = new System.Windows.Forms.ComboBox();
+            this.formsPlot1 = new ScottPlot.FormsPlot();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -187,68 +185,49 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.cmbTopStats);
-            this.groupBox1.Controls.Add(this.cmbLevelStats);
-            this.groupBox1.Controls.Add(this.cmbTypeStats);
+            this.groupBox1.Controls.Add(this.formsPlot2);
+            this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.cmbSearchBy);
+            this.groupBox1.Controls.Add(this.formsPlot1);
             this.groupBox1.Location = new System.Drawing.Point(213, 86);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(502, 320);
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label4
+            // formsPlot2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(345, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 20);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Top";
+            this.formsPlot2.Location = new System.Drawing.Point(10, 81);
+            this.formsPlot2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.formsPlot2.Name = "formsPlot2";
+            this.formsPlot2.Size = new System.Drawing.Size(484, 255);
+            this.formsPlot2.TabIndex = 9;
             // 
-            // label3
+            // btnSearch
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(176, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Level";
+            this.btnSearch.Location = new System.Drawing.Point(385, 38);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(94, 29);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // cmbSearchBy
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Type";
+            this.cmbSearchBy.FormattingEnabled = true;
+            this.cmbSearchBy.Location = new System.Drawing.Point(60, 39);
+            this.cmbSearchBy.Name = "cmbSearchBy";
+            this.cmbSearchBy.Size = new System.Drawing.Size(319, 28);
+            this.cmbSearchBy.TabIndex = 7;
             // 
-            // cmbTopStats
+            // formsPlot1
             // 
-            this.cmbTopStats.FormattingEnabled = true;
-            this.cmbTopStats.Location = new System.Drawing.Point(345, 39);
-            this.cmbTopStats.Name = "cmbTopStats";
-            this.cmbTopStats.Size = new System.Drawing.Size(151, 28);
-            this.cmbTopStats.TabIndex = 2;
-            // 
-            // cmbLevelStats
-            // 
-            this.cmbLevelStats.FormattingEnabled = true;
-            this.cmbLevelStats.Location = new System.Drawing.Point(176, 39);
-            this.cmbLevelStats.Name = "cmbLevelStats";
-            this.cmbLevelStats.Size = new System.Drawing.Size(151, 28);
-            this.cmbLevelStats.TabIndex = 1;
-            // 
-            // cmbTypeStats
-            // 
-            this.cmbTypeStats.FormattingEnabled = true;
-            this.cmbTypeStats.Location = new System.Drawing.Point(6, 39);
-            this.cmbTypeStats.Name = "cmbTypeStats";
-            this.cmbTypeStats.Size = new System.Drawing.Size(151, 28);
-            this.cmbTypeStats.TabIndex = 0;
+            this.formsPlot1.Location = new System.Drawing.Point(10, 81);
+            this.formsPlot1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.formsPlot1.Name = "formsPlot1";
+            this.formsPlot1.Size = new System.Drawing.Size(484, 255);
+            this.formsPlot1.TabIndex = 6;
             // 
             // frmStats
             // 
@@ -271,9 +250,9 @@
             this.Controls.Add(this.btnUsers);
             this.Name = "frmStats";
             this.Text = "frmStats";
+            this.Load += new System.EventHandler(this.frmStats_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,11 +274,9 @@
         private Button btnExercises;
         private Button btnUsers;
         private GroupBox groupBox1;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private ComboBox cmbTopStats;
-        private ComboBox cmbLevelStats;
-        private ComboBox cmbTypeStats;
+        private ScottPlot.FormsPlot formsPlot1;
+        private Button btnSearch;
+        private ComboBox cmbSearchBy;
+        private ScottPlot.FormsPlot formsPlot2;
     }
 }

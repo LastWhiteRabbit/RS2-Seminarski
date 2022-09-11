@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Flurl.Http;
 using RS2Seminarski.Model;
 using RS2Seminarski.Model.SearchObjects;
+using RS2Seminarski.WinUI.Services;
 
 namespace RS2Seminarski.WinUI
 {

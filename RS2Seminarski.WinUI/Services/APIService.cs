@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RS2Seminarski.WinUI
+namespace RS2Seminarski.WinUI.Services
 {
     public class APIService
     {
@@ -24,7 +24,7 @@ namespace RS2Seminarski.WinUI
         public async Task<T> Get<T>(object search = null)
         {
             var query = "";
-            if(search != null)
+            if (search != null)
             {
                 query = await search.ToQueryString();
             }
@@ -60,7 +60,7 @@ namespace RS2Seminarski.WinUI
                 }
 
                 MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return default(T);
+                return default;
             }
 
         }
