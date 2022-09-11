@@ -20,6 +20,7 @@ namespace RS2Seminarski.WinUI
         public frmStats()
         {
             InitializeComponent();
+            statsAPI = new StatsAPI();
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
@@ -87,9 +88,78 @@ namespace RS2Seminarski.WinUI
             formsPlot1.Plot.XLabel("");
         }
 
+        private async void loadExercisePerLevel()
+        {
+            formsPlot2.Hide();
+            formsPlot1.Show();
+            formsPlot1.Plot.Clear();
+            var response = await statsAPI.GetExercisesPerLevel();
+
+            var labels = Enumerable.Range(0, response.Count)
+                                   .Select(i => $"{response[i].Label}\n({response[i].Value})")
+                                   .ToArray();
+
+            var pie = formsPlot1.Plot.AddPie(response.Select(x => (double)x.Value).ToArray());
+
+            pie.SliceLabels = labels;
+            pie.ShowLabels = true;
+            formsPlot1.Plot.Legend();
+            formsPlot1.Refresh();
+
+            formsPlot1.Plot.YLabel("");
+            formsPlot1.Plot.XLabel("");
+        }
+
+        private async void loadExercisePerMuscle()
+        {
+            formsPlot2.Hide();
+            formsPlot1.Show();
+            formsPlot1.Plot.Clear();
+            var response = await statsAPI.GetExercisesPerMuscle();
+
+            var labels = Enumerable.Range(0, response.Count)
+                                   .Select(i => $"{response[i].Label}\n({response[i].Value})")
+                                   .ToArray();
+
+            var pie = formsPlot1.Plot.AddPie(response.Select(x => (double)x.Value).ToArray());
+
+            pie.SliceLabels = labels;
+            pie.ShowLabels = true;
+            formsPlot1.Plot.Legend();
+            formsPlot1.Refresh();
+
+            formsPlot1.Plot.YLabel("");
+            formsPlot1.Plot.XLabel("");
+        }
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var selectedValue = cmbSearchBy.SelectedValue as string;
+            if (!String.IsNullOrEmpty(selectedValue))
+            {
+                switch (selectedValue)
+                {
+                    case "Display Exercise per Type":
+                        loadExercisePerType();
+                        break;
+                    case "Display Exercise per Muscle":
+                        loadExercisePerMuscle();
+                        break;
+                    case "Display Exercise per Level":
+                        loadExercisePerLevel();
+                        break;
+
+                }
+            }
+        }
+
+
+
+
     }
 }
