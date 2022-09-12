@@ -25,8 +25,5 @@ class RoutineClientProvider with ChangeNotifier {
     RoutineItem? item = routineClient.items.firstWhereOrNull(
         (item) => item.exercise.exerciseId == exercise.exerciseId);
     return item;
-
-    return routineClient.items
-        .firstWhere((item) => item.exercise.exerciseId == exercise.exerciseId);
   }
 }

@@ -10,5 +10,7 @@ namespace RS2Seminarski.Model.SearchObjects
     {
         public string? ExerciseName { get; set; }
         public int LevelId { get; set; }
+        public int MuscleId { get; set; }
+        public int ExerciseTypeId { get; set; }
     }
 }

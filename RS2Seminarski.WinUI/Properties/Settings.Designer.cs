@@ -25,7 +25,7 @@ namespace RS2Seminarski.WinUI.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:7113/api/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.0.2.2:5192/api/")]
         public string ApiURL {
             get {
                 return ((string)(this["ApiURL"]));

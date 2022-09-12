@@ -12,7 +12,7 @@ class ExerciseProvider extends BaseProvider<Exercise> {
 
   Future<Exercise> getRecommendedExercise(int id,
       [dynamic additionalData]) async {
-    var url = Uri.parse("https://10.0.2.2:7113/api/Exercise/$id/Recommend");
+    var url = Uri.parse("http://10.0.2.2:5192/api/Exercise/$id/Recommend");
 
     Map<String, String> headers = createHeaders();
 

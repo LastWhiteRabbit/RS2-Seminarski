@@ -52,9 +52,20 @@ namespace RS2Seminarski.WebAPI.Services
 
             if (!string.IsNullOrWhiteSpace(search?.ExerciseName))
             {
-                filteredQuery = filteredQuery.Where(x => x.ExerciseName == search.ExerciseName);
+                filteredQuery = filteredQuery.Where(x => x.ExerciseName.ToLower().Contains(search.ExerciseName.ToLower()));
             }
-
+            if (search.LevelId > 0)
+            {
+                filteredQuery = filteredQuery.Where(x => x.LevelId == search.LevelId);
+            }
+            if (search.MuscleId > 0)
+            {
+                filteredQuery = filteredQuery.Where(x=> x.ExerciseMuscles.Any(x => x.MuscleId == search.MuscleId));
+            }
+            if (search.ExerciseTypeId > 0)
+            {
+                filteredQuery = filteredQuery.Where(x => x.ExerciseExerciseTypes.Any(x => x.ExerciseTypeId == search.ExerciseTypeId));
+            }
 
             return filteredQuery;
         }

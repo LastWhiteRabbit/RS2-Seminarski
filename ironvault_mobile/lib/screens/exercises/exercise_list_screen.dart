@@ -4,8 +4,10 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:ironvault_mobile/login_page.dart';
 import 'package:ironvault_mobile/model/exercise.dart';
+import 'package:ironvault_mobile/model/exercisetype.dart';
 import 'package:ironvault_mobile/model/muscle.dart';
 import 'package:ironvault_mobile/providers/exercise_provider.dart';
+import 'package:ironvault_mobile/providers/exercisetype_provider.dart';
 import 'package:ironvault_mobile/providers/muscle_provider.dart';
 import 'package:ironvault_mobile/providers/routine_provider.dart';
 import 'package:ironvault_mobile/providers/routineclient_provider.dart';
@@ -29,7 +31,10 @@ class ExerciseListScreen extends StatefulWidget {
 class _ExerciseListScreenState extends State<ExerciseListScreen> {
   ExerciseProvider? _exerciseProvider = null;
   RoutineClientProvider? _routineClientProvider = null;
+  ExerciseTypeProvider? _exerciseTypeProvider = null;
   List<Exercise> data = [];
+  List<ExerciseType> exerciseTypes = [];
+  int? selectedExerciseTypeValue;
 
   double _drawerIconSize = 24;
   double _drawerFontSize = 17;
@@ -49,6 +54,14 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
     });
   }
 
+  Future loadExerciseTypes() async {
+    var tmpData = await _exerciseTypeProvider?.get(null);
+
+    setState(() {
+      exerciseTypes = tmpData!;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MasterScreenWidget(
@@ -58,6 +71,7 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildHeader(),
+              Text(data.length.toString()),
               Container(
                 height: 500,
                 child: GridView(
@@ -70,9 +84,6 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
                   children: _buildExerciseCardList(),
                 ),
               ),
-              Container(
-                child: Text("Hello World"),
-              )
             ],
           ),
         ),
@@ -89,6 +100,28 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
             color: Colors.grey, fontSize: 40, fontWeight: FontWeight.w600),
       ),
     );
+  }
+
+  List<DropdownMenuItem> _buildExerciseTypesDownList() {
+    if (exerciseTypes.isEmpty) {
+      return [];
+    }
+    List<DropdownMenuItem> list = <DropdownMenuItem>[];
+
+    list.add(DropdownMenuItem(
+        child: Text("Exercise type", style: TextStyle(color: Colors.black)),
+        enabled: false,
+        value: -1));
+
+    list.addAll(exerciseTypes
+        .map((x) => DropdownMenuItem(
+              child: Text(x.exerciseTypeName!,
+                  style: TextStyle(color: Colors.black)),
+              value: x.exerciseTypeId,
+            ))
+        .toList());
+
+    return list;
   }
 
   List<Widget> _buildExerciseCardList() {
