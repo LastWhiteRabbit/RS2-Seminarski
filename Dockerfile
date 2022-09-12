@@ -13,5 +13,6 @@ RUN dotnet publish "RS2Seminarski.WebAPI/RS2Seminarski.WebAPI.csproj" -c Release
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
+ADD ./RS2Seminarski.WebAPI/SeedFiles/Images/Exercises ./SeedFiles/Images/Exercises
 
 ENTRYPOINT ["dotnet", "RS2Seminarski.WebAPI.dll"] 
