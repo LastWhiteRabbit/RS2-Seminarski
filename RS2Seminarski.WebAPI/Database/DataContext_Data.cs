@@ -19,6 +19,8 @@ namespace RS2Seminarski.WebAPI.Database
                 UserName = "test",
                 PasswordHash = "7p3l25Cnbg+2QxoQRElFJjIqHgA=",
                 PaswordSalt = "H4pOSYtdeJgGsU/6HRTxqw==",
+                CityId = 1,
+                CountryId = 1
             });
 
             //u:admin p:admin
@@ -31,6 +33,8 @@ namespace RS2Seminarski.WebAPI.Database
                 UserName = "admin",
                 PasswordHash = "JfJzsL3ngGWki+Dn67C+8WLy73I=",
                 PaswordSalt = "7TUJfmgkkDvcY3PB/M4fhg==",
+                CityId = 2,
+                CountryId = 2
             });
 
             modelBuilder.Entity<UserRole>().HasData(new UserRole() { UserRoleId = 1, UserId = 1, RoleId = 1, DateEdited = DateTime.Today });
@@ -188,6 +192,33 @@ namespace RS2Seminarski.WebAPI.Database
             modelBuilder.Entity<RoutineUser>().HasData(new RoutineUser() { RoutineUserId = 8, RoutineId = 8, UserId = 2 });
             modelBuilder.Entity<RoutineUser>().HasData(new RoutineUser() { RoutineUserId = 9, RoutineId = 9, UserId = 2 });
             modelBuilder.Entity<RoutineUser>().HasData(new RoutineUser() { RoutineUserId = 10, RoutineId = 10, UserId = 2 });
+
+
+            modelBuilder.Entity<Country>().HasData(new Country() { CountryId = 1, Name = "USA" });
+            modelBuilder.Entity<Country>().HasData(new Country() { CountryId = 2, Name = "Canada" });
+            modelBuilder.Entity<Country>().HasData(new Country() { CountryId = 3, Name = "Russia" });
+            modelBuilder.Entity<Country>().HasData(new Country() { CountryId = 4, Name = "France" });
+            modelBuilder.Entity<Country>().HasData(new Country() { CountryId = 5, Name = "Germany" });
+            modelBuilder.Entity<Country>().HasData(new Country() { CountryId = 6, Name = "Spain" });
+            modelBuilder.Entity<Country>().HasData(new Country() { CountryId = 7, Name = "Portugal" });
+            modelBuilder.Entity<Country>().HasData(new Country() { CountryId = 8, Name = "Greece" });
+            modelBuilder.Entity<Country>().HasData(new Country() { CountryId = 9, Name = "Austria" });
+            modelBuilder.Entity<Country>().HasData(new Country() { CountryId = 10, Name = "Switzerland" });
+
+
+            modelBuilder.Entity<City>().HasData(new City() { CityId = 1, Name = "Washington" });
+            modelBuilder.Entity<City>().HasData(new City() { CityId = 2, Name = "Ottawa" });
+            modelBuilder.Entity<City>().HasData(new City() { CityId = 3, Name = "Moscow" });
+            modelBuilder.Entity<City>().HasData(new City() { CityId = 4, Name = "Paris" });
+            modelBuilder.Entity<City>().HasData(new City() { CityId = 5, Name = "Berlin" });
+            modelBuilder.Entity<City>().HasData(new City() { CityId = 6, Name = "Madrid" });
+            modelBuilder.Entity<City>().HasData(new City() { CityId = 7, Name = "Lisbon" });
+            modelBuilder.Entity<City>().HasData(new City() { CityId = 8, Name = "Athens" });
+            modelBuilder.Entity<City>().HasData(new City() { CityId = 9, Name = "Vienna" });
+            modelBuilder.Entity<City>().HasData(new City() { CityId = 10, Name = "Bern" });
+
+            modelBuilder.Entity<Plan>().HasData(new Plan() { PlanId = 1, PlanName = "Clean Eating for Beginners", About = "Whether you want to gain weight, lose weight, or just be all-around healthier, the right meal plan can help! If you've never tried meal planning before, this beginner's guide has everything you need to know to get started!", Duration="6 weeks", Instruction= "Meal 1: Breakfast (containing some starchy carbs) Meal 2: Snack (low-carb) Meal 3: Lunch (low-carb)\r\n    Meal 4: Post-workout snack or shake (containing starchy carbs) Meal 5: Dinner (containing starchy carbs)", LevelId=1 });
+
 
         }
     }

@@ -25,6 +25,10 @@ namespace RS2Seminarski.WebAPI.Database
         public DbSet<RoutineUser> RoutineUsers { get; set; } = null;
         public DbSet<User> Users { get; set; } = null;
         public DbSet<UserRole> UserRoles { get; set; } = null;
+        public DbSet<Country> Countries { get; set; } = null;
+        public DbSet<City> Cities { get; set; } = null;
+        public DbSet<Plan> Plans { get; set; } = null;
+
         public DbSet<WeatherForecast> WeatherForecasts { get; set; } = null;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -44,6 +48,13 @@ namespace RS2Seminarski.WebAPI.Database
             modelBuilder.Entity<Routine>().HasKey(e => e.RoutineId);
             modelBuilder.Entity<RoutineExercise>().HasKey(e => e.RoutineExerciseId);
             modelBuilder.Entity<RoutineUser>().HasKey(e => e.RoutineUserId);
+
+            modelBuilder.Entity<Country>().HasKey(e => e.CountryId);
+            modelBuilder.Entity<City>().HasKey(e => e.CityId);
+
+            modelBuilder.Entity<Plan>().HasKey(e => e.PlanId);
+
+
 
             OnModelCreatingPartial(modelBuilder);
         }

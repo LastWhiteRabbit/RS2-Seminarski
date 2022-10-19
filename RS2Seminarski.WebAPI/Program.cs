@@ -26,6 +26,9 @@ builder.Services.AddTransient<IService<RS2Seminarski.Model.Role, BaseSearchObjec
 builder.Services.AddTransient<IService<RS2Seminarski.Model.Muscle, BaseSearchObject>, BaseService<RS2Seminarski.Model.Muscle, Muscle, BaseSearchObject >> ();
 builder.Services.AddTransient<IService<RS2Seminarski.Model.ExerciseType, BaseSearchObject>, BaseService<RS2Seminarski.Model.ExerciseType, ExerciseType, BaseSearchObject >> ();
 builder.Services.AddTransient<IService<RS2Seminarski.Model.RoutineExercise, BaseSearchObject>, BaseService<RS2Seminarski.Model.RoutineExercise, RoutineExercise, BaseSearchObject >> ();
+builder.Services.AddTransient<IService<RS2Seminarski.Model.Country, BaseSearchObject>, BaseService<RS2Seminarski.Model.Country, Country, BaseSearchObject >> ();
+builder.Services.AddTransient<IService<RS2Seminarski.Model.City, BaseSearchObject>, BaseService<RS2Seminarski.Model.City, City, BaseSearchObject >> ();
+builder.Services.AddTransient<IService<RS2Seminarski.Model.Plan, BaseSearchObject>, BaseService<RS2Seminarski.Model.Plan, Plan, BaseSearchObject >> ();
 builder.Services.AddTransient<IStatsService, StatsService>();
 builder.Services.AddMemoryCache();    
 

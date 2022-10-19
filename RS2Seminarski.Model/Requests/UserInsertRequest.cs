@@ -24,6 +24,9 @@ namespace RS2Seminarski.Model.Requests
         public string PasswordConfirmation { get; set; }
         public bool? Status { get; set; }
 
+        public int CountryId { get; set; }
+        public int CityId { get; set; }
+
 
         public List<int> RoleIdList { get; set; } = new List<int> { };
         public List<int> RoutineIdList { get; set; } = new List<int> { };
