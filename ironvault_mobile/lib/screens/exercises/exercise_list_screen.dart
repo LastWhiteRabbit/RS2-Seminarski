@@ -71,7 +71,6 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildHeader(),
-              Text(data.length.toString()),
               Container(
                 height: 500,
                 child: GridView(

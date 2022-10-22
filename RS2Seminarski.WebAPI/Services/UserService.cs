@@ -24,6 +24,9 @@ namespace RS2Seminarski.WebAPI.Services
                 throw new UserException("Password does not match your password confirmation!");
             }
 
+            insert.CityId = 1;
+            insert.CountryId = 1;
+
             var entity = await base.InsertAsync(insert);
 
             foreach (var roleId in insert.RoleIdList)
